@@ -1,33 +1,45 @@
 /* src/components/Header/Header.css */
+
 .header {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .header h1 {
-    margin: 0;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  nav ul li {
-    display: inline;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  nav ul li a:hover {
-    text-decoration: underline;
-  }
-  
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between logo and nav */
+  align-items: center; /* Center items vertically */
+  background-color: #f8f9fa; /* Light background color */
+  color: #333; /* Dark text color */
+  padding: 10px 20px; /* Padding around the header */
+  position: fixed; /* Fix the header at the top */
+  top: 0; /* Align to the top of the screen */
+  left: 0; /* Align to the left of the screen */
+  width: 100%; /* Full width */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.logo {
+  font-size: 1.5rem; /* Font size for the logo */
+  margin: 0; /* Remove default margin */
+}
+
+nav {
+  /* No specific styles needed for nav */
+}
+
+.nav-list {
+  list-style: none; /* Remove bullet points */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Use flexbox for horizontal layout */
+}
+
+.nav-item {
+  margin-left: 20px; /* Space between nav items */
+}
+
+.nav-link {
+  color: #333; /* Dark text for links */
+  text-decoration: none; /* Remove underline */
+}
+
+.nav-link:hover {
+  text-decoration: underline; /* Underline on hover for clarity */
+}

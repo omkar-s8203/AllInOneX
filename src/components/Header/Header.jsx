@@ -6,17 +6,17 @@ import './Header.css'; // To style the header
 function Header() {
   return (
     <header className="header">
-      <h1>AllInOneX</h1>
+      <h1 className="logo">AllInOneX</h1>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
+        <ul className="nav-list">
+          <li className="nav-item">
+            <Link className="nav-link" to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/blogging">Blogging</Link>
+          <li className="nav-item">
+            <Link className="nav-link" to="/blogging">Blogging</Link>
           </li>
-          <li>
-            <Link to="/weather">Weather</Link>
+          <li className="nav-item">
+            <Link className="nav-link" to="/weather">Weather</Link>
           </li>
         </ul>
       </nav>

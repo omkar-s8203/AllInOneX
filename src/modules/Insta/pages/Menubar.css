@@ -1,0 +1,140 @@
+/* Global Styles */
+.menu-bar {
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
+/*/ Neon Animation for FaInstagram Logo */
+.logoi {
+    font-size: 50px;
+    animation: neonColorChange 3s infinite; /* Apply animation */
+}
+
+/* Define keyframes for neon color changes */
+@keyframes neonColorChange {
+    0% {
+        color: #ff007f; /* Neon pink */
+        text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+    }
+    25% {
+        color: #00ffee; /* Neon teal */
+        text-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee, 0 0 30px #00ffee, 0 0 40px #00ffee, 0 0 50px #00ffee;
+    }
+    50% {
+        color: #ffff00; /* Neon yellow */
+        text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffff00, 0 0 50px #ffff00;
+    }
+    75% {
+        color: #ff00ff; /* Neon purple */
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+    }
+    100% {
+        color: #ff007f; /* Back to neon pink */
+        text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+    }
+}
+
+/* Instagram Text Styling */
+.Instagram {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase; /* Optional for making text uppercase */
+    font-family: "Playwrite AU SA", serif ;/* Optional for specific font */
+    animation: neonColorChange 3s infinite;
+}
+
+/* Menu Styling */
+span {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: -20px;
+    color: white;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Neon Hover Effect */
+span:nth-child(1):hover {
+    color: #ff007f; /* Neon pink */
+    text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+}
+
+span:nth-child(2):hover {
+    color: #00ffee; /* Neon teal */
+    text-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee, 0 0 30px #00ffee, 0 0 40px #00ffee, 0 0 50px #00ffee;
+}
+
+span:nth-child(3):hover {
+    color: #ffff00; /* Neon yellow */
+    text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffff00, 0 0 50px #ffff00;
+}
+
+span:nth-child(4):hover {
+    color: #ff00ff; /* Neon purple */
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+}
+
+span:nth-child(5):hover {
+    color: #00ff00; /* Neon green */
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00;
+}
+
+span:nth-child(6):hover {
+    color: #ff4500; /* Neon orange */
+    text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff4500, 0 0 40px #ff4500, 0 0 50px #ff4500;
+}
+
+span:nth-child(7):hover {
+    color: #1e90ff; /* Neon blue */
+    text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff, 0 0 40px #1e90ff, 0 0 50px #1e90ff;
+}
+
+span:nth-child(8):hover {
+    color: #8a2be2; /* Neon indigo */
+    text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2, 0 0 40px #8a2be2, 0 0 50px #8a2be2;
+}
+
+.message-hover:hover {
+    color: #00ffee; /* Neon teal */
+    text-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee, 0 0 30px #00ffee, 0 0 40px #00ffee, 0 0 50px #00ffee;
+}
+
+/* Neon Hover Effect for "Notification" Span */
+.notification-hover:hover {
+    color: #ffff00; /* Neon yellow */
+    text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffff00, 0 0 50px #ffff00;
+}
+
+/* Neon Hover Effect for "Create" Span */
+.create-hover:hover {
+    color: #ff00ff; /* Neon purple */
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+}
+
+/* Neon Hover Effect for "Profile" Span */
+.profile-hover:hover {
+    color: #ff4500; /* Neon orange */
+    text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff4500, 0 0 40px #ff4500, 0 0 50px #ff4500;
+}
+
+.setting-hover:hover {
+    color: #ff6347; /* Neon red-orange */
+    text-shadow: 0 0 10px #ff6347, 0 0 20px #ff6347, 0 0 30px #ff6347, 0 0 40px #ff6347, 0 0 50px #ff6347;
+}
+
+/* Menu Container Styling */
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 400px;
+    justify-content: space-evenly;
+}
+
+/* Menu Item Styling */
+.menu-down {
+    display: flex;;
+    flex-direction: column;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+

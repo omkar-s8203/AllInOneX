@@ -1,0 +1,34 @@
+/*  This Insta page css for all pages */
+
+.insta_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* margin-top: 20px; */
+    flex-direction: row;
+    background-color: azure;
+   
+}
+
+.bar_col{
+    display: flex;
+    justify-content: center;
+    /* margin: 20px; */
+    /* border: solid 1px black;  */
+    /* height: 89vh; */
+    
+}
+.menu_bar{
+  flex-grow: 2;
+  background-color: rgb(0, 0, 0);
+  position: sticky;
+}
+.main_content{
+  flex-grow: 8;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.follow_suggestions{
+flex-grow: 2;
+}

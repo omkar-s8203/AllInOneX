@@ -1,45 +1,80 @@
-/* src/components/Header/Header.css */
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* Header Styling */
 .header {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space between logo and nav */
-  align-items: center; /* Center items vertically */
-  background-color: #f8f9fa; /* Light background color */
-  color: #333; /* Dark text color */
-  padding: 10px 20px; /* Padding around the header */
-  position: fixed; /* Fix the header at the top */
-  top: 0; /* Align to the top of the screen */
-  left: 0; /* Align to the left of the screen */
-  width: 100%; /* Full width */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  z-index: 1000; /* Ensure it stays above other content */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #34a853;
 }
 
-.logo {
-  font-size: 1.5rem; /* Font size for the logo */
-  margin: 0; /* Remove default margin */
+/* Logo Styling */
+.logo h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
 }
 
-nav {
-  /* No specific styles needed for nav */
-}
-
+/* Navigation Menu */
 .nav-list {
-  list-style: none; /* Remove bullet points */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  display: flex; /* Use flexbox for horizontal layout */
+  display: flex;
+  list-style: none;
 }
 
 .nav-item {
-  margin-left: 20px; /* Space between nav items */
+  margin-left: 1.5rem;
 }
 
 .nav-link {
-  color: #333; /* Dark text for links */
-  text-decoration: none; /* Remove underline */
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  text-decoration: underline; /* Underline on hover for clarity */
+  color: #d4f1c5; /* Light green hover effect */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Tablet and Larger Screens */
+@media (min-width: 769px) {
+  .nav-list {
+    flex-direction: row;
+  }
+
+  .nav-item {
+    margin: 0 1.5rem;
+  }
 }

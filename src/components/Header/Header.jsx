@@ -1,7 +1,7 @@
 // src/components/Header/Header.jsx
 
 import { Link } from "react-router-dom";
-import './Header.css'; // To style the header
+import './Header.css'; // Link to the updated CSS
 
 function Header() {
   return (
@@ -11,6 +11,9 @@ function Header() {
         <ul className="nav-list">
           <li className="nav-item">
             <Link className="nav-link" to="/">Home</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/insta">Insta</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/blogging">Blogging</Link>

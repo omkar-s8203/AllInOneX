@@ -1,7 +1,7 @@
 /* Global Styles */
 .menu-bar {
-    color: white;
-    background-color: rgb(0, 0, 0);
+    color: rgb(26, 25, 25);
+    background-color: #fafafa;
 }
 
 /*/ Neon Animation for FaInstagram Logo */
@@ -38,9 +38,9 @@
 .Instagram {
     font-size: 30px;
     font-weight: bold;
-    text-transform: uppercase; /* Optional for making text uppercase */
-    font-family: "Playwrite AU SA", serif ;/* Optional for specific font */
-    animation: neonColorChange 3s infinite;
+    text-transform: capitalize; /* Optional for making text uppercase */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;/* Optional for specific font */
+    /* animation: neonColorChange 3s infinite; */
 }
 
 /* Menu Styling */
@@ -48,7 +48,7 @@ span {
     font-size: 20px;
     font-weight: bold;
     margin-left: -20px;
-    color: white;
+    color: rgb(0, 0, 0);
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 

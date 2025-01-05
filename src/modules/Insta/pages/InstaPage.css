@@ -1,34 +1,27 @@
-/*  This Insta page css for all pages */
-
-.insta_container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* margin-top: 20px; */
-    flex-direction: row;
-    background-color: azure;
-   
+.insta_container {
+  display: flex;
+  justify-content: space-between;
+  background-color: azure;
+  width: 100%;
 }
 
-.bar_col{
-    display: flex;
-    justify-content: center;
-    /* margin: 20px; */
-    /* border: solid 1px black;  */
-    /* height: 89vh; */
-    
-}
-.menu_bar{
-  flex-grow: 2;
-  background-color: rgb(0, 0, 0);
-  position: sticky;
-}
-.main_content{
-  flex-grow: 8;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
+.bar_col {
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
-.follow_suggestions{
-flex-grow: 2;
+.menu_bar {
+  flex: 0 0 20%;  /* Set the width of the MenuBar to 20% */
+  /* background-color: rgb(0, 0, 0);  Optional, to give MenuBar a background */
+}
+
+.main_content {
+  flex: 0 0 60%;  /* Set the width of the MainContent to 60% */
+  background-color: white;  /* Optional, to give MainContent a background */
+}
+
+.follow_suggestions {
+  flex: 0 0 20%;  /* Set the width of FollowSuggestions to 20% */
+  background-color: lightgray;  /* Optional, to give FollowSuggestions a background */
 }

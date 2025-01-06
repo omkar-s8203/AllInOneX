@@ -1,6 +1,6 @@
-import { FaBell, FaMessage, FaPersonRifle, FaSquareMinus, FaThreads } from "react-icons/fa6";
+import {  FaMessage, FaPersonRifle, FaSquareMinus, FaThreads } from "react-icons/fa6";
 import "./MenuBar.css";
-import { FaHome, FaInstagram, FaPlusCircle, FaSafari, FaSearch, FaStudiovinari, FaVideo } from "react-icons/fa";
+import { FaHome, FaInstagram, FaPlusCircle, FaStudiovinari, FaVideo } from "react-icons/fa";
 
 function MenuBar() {
     return (
@@ -13,28 +13,20 @@ function MenuBar() {
 
             <div className="menu">
                 <span>
-                    <FaHome /> Home
+                    <FaHome /> Posts 
                 </span>
                 <br />
                 <span>
-                    <FaSearch /> Search
-                </span>
-                <br />
-                <span>
-                    <FaSafari /> Explore
-                </span>
-                <br />
-                <span>
-                    <FaVideo /> Reels
+                    <FaVideo /> Album
                 </span>
                 <br />
                 <span className="message-hover"> 
-                    <FaMessage /> Message
+                    <FaMessage /> Users
                 </span>
-                <br />
-                <span className="notification-hover">
-                    <FaBell /> Notification
-                </span>
+                {/* <br /> */}
+                {/* <span className="notification-hover">
+                    <FaBell /> ToDo 
+                </span> */}
                 <br />
                 <span className="create-hover">
                     <FaPlusCircle /> Create

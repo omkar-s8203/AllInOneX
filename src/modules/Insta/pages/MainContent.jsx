@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./MainContent.css";
+import Caption from "../../../components/Common/Caption";
 
 function MainContent() {
   const [posts, setPosts] = useState([]);
@@ -53,7 +54,7 @@ function MainContent() {
   return (
     <div className="scrollbar">
       <div className="insta-page">
-        <h1>Instagram Posts</h1>
+        {/* <h1>Instagram Posts</h1> */}
         {loading ? (
           <p>Loading...</p>
         ) : (
@@ -73,12 +74,14 @@ function MainContent() {
                             alt="Profile"
                           />
                         </div>
-                        <div className="profile-name">John Doe</div>{" "}
-                        {/* Static username */}
                       </div>
-                      <div className="postHeader">
-                        <div className="title">{post.title}</div>
+                      <div className="nameContainer">
+                        <div className="profile-name">John Doe</div>
+                        <div className="title">
+                        <Caption text={post.title} />
+                        </div>
                       </div>
+                      <div className="followLink">Follow</div>
                     </div>
 
                     {/* Post body: image and description */}
@@ -89,7 +92,7 @@ function MainContent() {
                           alt="Post"
                         />
                       </div>
-                      <div className="description">{post.body}</div>
+                      <div className="description"><Caption text={post.body} /></div>
                     </div>
 
                     {/* Footer: comment count and more comments */}

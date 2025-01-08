@@ -16,17 +16,17 @@
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  background: #3d85c6;
+  background: #62b965; /* Green from the theme */
   border-radius: 10px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #5aaefc;
+  background: #34a853; /* Lighter Green */
 }
 
 .scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #3d85c6 #f4f4f4;
+  scrollbar-color: #62b965 #f4f4f4;
 }
 
 /* Page Container */
@@ -37,16 +37,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* Page Heading */
-.insta-page h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #3d85c6;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-align: center;
 }
 
 /* Card Container */
@@ -81,7 +71,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-grow:1;
+  flex-grow: 1;
 }
 
 .profile-pic {
@@ -97,19 +87,14 @@
   border-radius: 50%;
 }
 
-.nameContainer{
+.nameContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 1rem;
   flex-grow: 8;
 }
-.caption {
-  font-weight: 500px;
-  color: #333;
-  text-align: justify;
-  
-}
+
 .profile-name {
   font-size: 1.1rem;
   font-weight: bold;
@@ -117,16 +102,17 @@
   text-align: left;
   text-transform: capitalize;
 }
-.title{
 
+.title {
   text-align: left;
 }
-.followLink{
+
+.followLink {
   display: flex;
   align-items: flex-start;
   margin-left: 1rem;
   font-size: 0.9rem;
-  color: #5aaefc;
+  color: #34a853; /* Lighter Green */
   cursor: pointer;
   justify-content: right;
   text-align: right;
@@ -181,14 +167,14 @@
 
 .commentCount {
   font-size: 0.9rem;
-  color: #3d85c6;
+  color: #62b965; /* Green from the theme */
   font-weight: bold;
   cursor: default;
 }
 
 .viewComments {
   font-size: 0.9rem;
-  color: #5aaefc;
+  color: #34a853; /* Lighter Green */
   cursor: pointer;
 }
 
@@ -276,6 +262,24 @@
   line-height: 1.4;
 }
 
+/* Hidden comment logic */
+.comment-item.hidden {
+  display: none;
+}
+
+/* View More Button */
+.viewMoreButton {
+  font-size: 1rem;
+  color: #34a853; /* Lighter Green */
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.viewMoreButton:hover {
+  text-decoration: underline;
+}
+
 /* Close Button */
 .close {
   position: absolute;
@@ -330,3 +334,5 @@
     max-height: 200px;
   }
 }
+
+

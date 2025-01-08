@@ -1,7 +1,7 @@
 .insta_container {
   display: flex;
   justify-content: space-between;
-  background-color: azure;
+  /* background-color: azure; */
   width: 100%;
 }
 
@@ -18,10 +18,10 @@
 
 .main_content {
   flex: 0 0 60%;  /* Set the width of the MainContent to 60% */
-  background-color: white;  /* Optional, to give MainContent a background */
+  /* background-color: white;  Optional, to give MainContent a background */
 }
 
 .follow_suggestions {
   flex: 0 0 20%;  /* Set the width of FollowSuggestions to 20% */
-  background-color: lightgray;  /* Optional, to give FollowSuggestions a background */
+  /* background-color: lightgray;  Optional, to give FollowSuggestions a background */
 }

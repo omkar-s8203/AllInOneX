@@ -1,10 +1,10 @@
 /* Global Styles */
 .menu-bar {
     color: rgb(26, 25, 25);
-    background-color: #fafafa;
+    /* background-color: #fafafa; */
 }
 
-/*/ Neon Animation for FaInstagram Logo */
+/* Neon Animation for FaInstagram Logo */
 .logoi {
     font-size: 50px;
     animation: neonColorChange 3s infinite; /* Apply animation */
@@ -13,24 +13,24 @@
 /* Define keyframes for neon color changes */
 @keyframes neonColorChange {
     0% {
-        color: #ff007f; /* Neon pink */
-        text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+        color: #62b965; /* Green */
+        text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
     }
     25% {
-        color: #00ffee; /* Neon teal */
-        text-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee, 0 0 30px #00ffee, 0 0 40px #00ffee, 0 0 50px #00ffee;
+        color: #34a853; /* Darker Green */
+        text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
     }
     50% {
-        color: #ffff00; /* Neon yellow */
-        text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffff00, 0 0 50px #ffff00;
+        color: #d4f1c5; /* Light Green */
+        text-shadow: 0 0 10px #d4f1c5, 0 0 20px #d4f1c5, 0 0 30px #d4f1c5, 0 0 40px #d4f1c5, 0 0 50px #d4f1c5;
     }
     75% {
-        color: #ff00ff; /* Neon purple */
-        text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+        color: #2c3e50; /* Dark Blue */
+        text-shadow: 0 0 10px #2c3e50, 0 0 20px #2c3e50, 0 0 30px #2c3e50, 0 0 40px #2c3e50, 0 0 50px #2c3e50;
     }
     100% {
-        color: #ff007f; /* Back to neon pink */
-        text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+        color: #62b965; /* Green */
+        text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
     }
 }
 
@@ -39,8 +39,7 @@
     font-size: 30px;
     font-weight: bold;
     text-transform: capitalize; /* Optional for making text uppercase */
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;/* Optional for specific font */
-    /* animation: neonColorChange 3s infinite; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Menu Styling */
@@ -48,77 +47,78 @@ span {
     font-size: 20px;
     font-weight: bold;
     margin-left: -20px;
-    color: rgb(0, 0, 0);
+    color: #2c3e50; /* Dark Blue */
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 /* Neon Hover Effect */
 span:nth-child(1):hover {
-    color: #ff007f; /* Neon pink */
-    text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+    color: #62b965; /* Green */
+    text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
 }
 
 span:nth-child(2):hover {
-    color: #00ffee; /* Neon teal */
-    text-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee, 0 0 30px #00ffee, 0 0 40px #00ffee, 0 0 50px #00ffee;
+    color: #34a853; /* Darker Green */
+    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
 }
 
 span:nth-child(3):hover {
-    color: #ffff00; /* Neon yellow */
-    text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffff00, 0 0 50px #ffff00;
+    color: #d4f1c5; /* Light Green */
+    text-shadow: 0 0 10px #d4f1c5, 0 0 20px #d4f1c5, 0 0 30px #d4f1c5, 0 0 40px #d4f1c5, 0 0 50px #d4f1c5;
 }
 
 span:nth-child(4):hover {
-    color: #ff00ff; /* Neon purple */
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+    color: #2c3e50; /* Dark Blue */
+    text-shadow: 0 0 10px #2c3e50, 0 0 20px #2c3e50, 0 0 30px #2c3e50, 0 0 40px #2c3e50, 0 0 50px #2c3e50;
 }
 
 span:nth-child(5):hover {
-    color: #00ff00; /* Neon green */
-    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00;
+    color: #34a853; /* Darker Green */
+    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
 }
 
 span:nth-child(6):hover {
-    color: #ff4500; /* Neon orange */
-    text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff4500, 0 0 40px #ff4500, 0 0 50px #ff4500;
+    color: #62b965; /* Green */
+    text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
 }
 
 span:nth-child(7):hover {
-    color: #1e90ff; /* Neon blue */
-    text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff, 0 0 40px #1e90ff, 0 0 50px #1e90ff;
+    color: #d4f1c5; /* Light Green */
+    text-shadow: 0 0 10px #d4f1c5, 0 0 20px #d4f1c5, 0 0 30px #d4f1c5, 0 0 40px #d4f1c5, 0 0 50px #d4f1c5;
 }
 
 span:nth-child(8):hover {
-    color: #8a2be2; /* Neon indigo */
-    text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2, 0 0 40px #8a2be2, 0 0 50px #8a2be2;
+    color: #34a853; /* Darker Green */
+    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
 }
 
 .message-hover:hover {
-    color: #00ffee; /* Neon teal */
-    text-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee, 0 0 30px #00ffee, 0 0 40px #00ffee, 0 0 50px #00ffee;
+    color: #34a853; /* Darker Green */
+    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
 }
 
 /* Neon Hover Effect for "Notification" Span */
 .notification-hover:hover {
-    color: #ffff00; /* Neon yellow */
-    text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffff00, 0 0 50px #ffff00;
+    color: #d4f1c5; /* Light Green */
+    text-shadow: 0 0 10px #d4f1c5, 0 0 20px #d4f1c5, 0 0 30px #d4f1c5, 0 0 40px #d4f1c5, 0 0 50px #d4f1c5;
 }
 
 /* Neon Hover Effect for "Create" Span */
 .create-hover:hover {
-    color: #ff00ff; /* Neon purple */
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+    color: #62b965; /* Green */
+    text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
 }
 
 /* Neon Hover Effect for "Profile" Span */
 .profile-hover:hover {
-    color: #ff4500; /* Neon orange */
-    text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff4500, 0 0 40px #ff4500, 0 0 50px #ff4500;
+    color: #34a853; /* Darker Green */
+    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
 }
 
+/* Neon Hover Effect for "Settings" Span */
 .setting-hover:hover {
-    color: #ff6347; /* Neon red-orange */
-    text-shadow: 0 0 10px #ff6347, 0 0 20px #ff6347, 0 0 30px #ff6347, 0 0 40px #ff6347, 0 0 50px #ff6347;
+    color: #2c3e50; /* Dark Blue */
+    text-shadow: 0 0 10px #2c3e50, 0 0 20px #2c3e50, 0 0 30px #2c3e50, 0 0 40px #2c3e50, 0 0 50px #2c3e50;
 }
 
 /* Menu Container Styling */
@@ -132,9 +132,12 @@ span:nth-child(8):hover {
 
 /* Menu Item Styling */
 .menu-down {
-    display: flex;;
+    display: flex;
     flex-direction: column;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
+.menu-down:hover {
+    background-color: #d4f1c5; /* Light Green */
+}

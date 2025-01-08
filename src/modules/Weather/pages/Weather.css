@@ -1,0 +1,176 @@
+/* General Styling */
+.weather-card {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.weather-card h2 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.city-selector {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.city-selector label {
+  font-size: 1rem;
+  color: #333;
+}
+
+.city-selector select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+/* Weather Information */
+.weather-info {
+  text-align: center;
+}
+
+.weather-info h3 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.weather-info p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Weather Animation */
+.weather-animation {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Sun Animation */
+.sun {
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 30%;
+  width: 50px;
+  height: 50px;
+  animation: sun-animation 3s infinite;
+}
+
+@keyframes sun-animation {
+  0% {
+    top: 10px;
+    left: 30%;
+  }
+  50% {
+    top: 30px;
+    left: 45%;
+  }
+  100% {
+    top: 10px;
+    left: 30%;
+  }
+}
+
+/* Rain Animation */
+.rain {
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  animation: rain-animation 1s infinite;
+}
+
+.rain .drop {
+  width: 5px;
+  height: 15px;
+  background-color: rgba(0, 0, 255, 0.6);
+  animation: drop-animation 1s infinite;
+}
+
+@keyframes rain-animation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+}
+
+@keyframes drop-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Cloud Animation */
+.clouds {
+  position: absolute;
+  top: 10px;
+  left: 20%;
+  display: flex;
+  justify-content: space-evenly;
+  width: 60%;
+  animation: cloud-animation 3s infinite;
+}
+
+.cloud {
+  width: 60px;
+  height: 40px;
+  background-color: rgba(200, 200, 200, 0.8);
+  border-radius: 50%;
+}
+
+@keyframes cloud-animation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Loading & Error */
+.weather-info p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.weather-info p.loading {
+  font-size: 1.5rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.weather-info p.error {
+  color: red;
+  font-weight: bold;
+}

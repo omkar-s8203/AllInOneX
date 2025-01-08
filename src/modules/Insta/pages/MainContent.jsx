@@ -8,6 +8,7 @@ function MainContent() {
   const [modalVisible, setModalVisible] = useState(false); // Modal visibility state
   const [comments, setComments] = useState([]); // Comments for the selected post
   const [selectedPost, setSelectedPost] = useState(null); // Selected post for the modal
+  const [viewMore, setViewMore] = useState(false); // Flag for showing more comments
 
   useEffect(() => {
     // Fetch posts and their comment counts
@@ -49,12 +50,17 @@ function MainContent() {
     setModalVisible(false);
     setComments([]);
     setSelectedPost(null);
+    setViewMore(false); // Reset "View More" flag
+  };
+
+  // Function to toggle comments visibility
+  const toggleCommentsVisibility = () => {
+    setViewMore(true);
   };
 
   return (
     <div className="scrollbar">
       <div className="insta-page">
-        {/* <h1>Instagram Posts</h1> */}
         {loading ? (
           <p>Loading...</p>
         ) : (
@@ -78,7 +84,7 @@ function MainContent() {
                       <div className="nameContainer">
                         <div className="profile-name">John Doe</div>
                         <div className="title">
-                        <Caption text={post.title} />
+                          <Caption text={post.title} />
                         </div>
                       </div>
                       <div className="followLink">Follow</div>
@@ -92,7 +98,9 @@ function MainContent() {
                           alt="Post"
                         />
                       </div>
-                      <div className="description"><Caption text={post.body} /></div>
+                      <div className="description">
+                        <Caption text={post.body} />
+                      </div>
                     </div>
 
                     {/* Footer: comment count and more comments */}
@@ -125,8 +133,11 @@ function MainContent() {
             <h2>Comments for Post {selectedPost}</h2>
             <ul className="comments-list">
               {comments.length > 0 ? (
-                comments.map((comment) => (
-                  <li className="comment-item" key={comment.id}>
+                comments.map((comment, index) => (
+                  <li
+                    className={`comment-item ${index >= 2 && !viewMore ? "hidden" : ""}`}
+                    key={comment.id}
+                  >
                     <div className="comment-profile-pic">
                       <img
                         src={`https://picsum.photos/seed/${comment.id}/50`} // Random profile picture for comments
@@ -143,6 +154,12 @@ function MainContent() {
                 <p>No comments available.</p>
               )}
             </ul>
+            {/* Show View More button if there are more than 2 comments */}
+            {comments.length > 2 && !viewMore && (
+              <div className="viewMoreButton" onClick={toggleCommentsVisibility}>
+                View More Comments
+              </div>
+            )}
           </div>
         </div>
       )}

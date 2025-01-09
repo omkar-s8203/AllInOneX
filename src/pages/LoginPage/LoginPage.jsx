@@ -1,46 +1,82 @@
-// src/pages/LoginPage/LoginPage.jsx
-import React, { useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-// import { useNavigate } from "react-router-dom";
-import './LoginPage.css';
+import { useState } from "react";
+import "./LoginPage.css";
 
 function LoginPage() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth();
-//   const navigate = useNavigate();
+  const [errors, setErrors] = useState({ email: "", password: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(username, password); // Call the login function from AuthContext
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailError = emailRegex.test(email)
+      ? ""
+      : "Please enter a valid email address.";
+
+    // Validate password
+    const passwordError =
+      password.length >= 6
+        ? ""
+        : "Password must be at least 6 characters long.";
+
+    if (emailError || passwordError) {
+      setErrors({ email: emailError, password: passwordError });
+    } else {
+      setErrors({ email: "", password: "" });
+      alert("Login successful!");
+      // Here you can handle API requests for login
+    }
   };
 
   return (
     <div className="login-page">
-      <h2>Login to AllInOneX</h2>
-      <form onSubmit={handleSubmit} className="login-form">
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      <div className="login-card">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          {/* Email Input */}
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+            />
+            {errors.email && <p className="error-message">{errors.email}</p>}
+          </div>
+
+          {/* Password Input */}
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+            />
+            {errors.password && (
+              <p className="error-message">{errors.password}</p>
+            )}
+          </div>
+
+          {/* Submit Button */}
+          <button type="submit" className="submit-button">
+            Login
+          </button>
+        </form>
+
+        {/* Create New Account */}
+        <p className="create-account">
+          Don&apos;t have an account?{" "}
+          <a href="/signup" className="create-account-link">
+            Create New Account
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

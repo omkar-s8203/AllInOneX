@@ -16,7 +16,7 @@ function MainContent() {
       try {
         const postsResponse = await fetch(
           "https://jsonplaceholder.typicode.com/posts"
-        );
+        );                     
         const postsData = await postsResponse.json();
         const postsWithCommentCounts = await Promise.all(
           postsData.map(async (post) => {

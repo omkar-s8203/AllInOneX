@@ -1,17 +1,12 @@
-import React from 'react'
 import './App.css'
 import AppRoutes from './routes'
-AppRoutes
 
 function App() {
-
   return (
-  
-      <React.StrictMode>
-      <AppRoutes />
-      </React.StrictMode>
- 
+    <div>
+    <AppRoutes />  {/* This will render the different pages based on routes */}
+    </div>
   )
 }
 
-export default App
+export default App;

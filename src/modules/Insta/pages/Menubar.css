@@ -1,0 +1,143 @@
+/* Global Styles */
+.menu-bar {
+    color: rgb(26, 25, 25);
+    /* background-color: #fafafa; */
+}
+
+/* Neon Animation for FaInstagram Logo */
+.logoi {
+    font-size: 50px;
+    animation: neonColorChange 3s infinite; /* Apply animation */
+}
+
+/* Define keyframes for neon color changes */
+@keyframes neonColorChange {
+    0% {
+        color: #62b965; /* Green */
+        text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
+    }
+    25% {
+        color: #34a853; /* Darker Green */
+        text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
+    }
+    50% {
+        color: #d4f1c5; /* Light Green */
+        text-shadow: 0 0 10px #d4f1c5, 0 0 20px #d4f1c5, 0 0 30px #d4f1c5, 0 0 40px #d4f1c5, 0 0 50px #d4f1c5;
+    }
+    75% {
+        color: #2c3e50; /* Dark Blue */
+        text-shadow: 0 0 10px #2c3e50, 0 0 20px #2c3e50, 0 0 30px #2c3e50, 0 0 40px #2c3e50, 0 0 50px #2c3e50;
+    }
+    100% {
+        color: #62b965; /* Green */
+        text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
+    }
+}
+
+/* Instagram Text Styling */
+.Instagram {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize; /* Optional for making text uppercase */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Menu Styling */
+span {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: -20px;
+    color: #2c3e50; /* Dark Blue */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Neon Hover Effect */
+span:nth-child(1):hover {
+    color: #62b965; /* Green */
+    text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
+}
+
+span:nth-child(2):hover {
+    color: #34a853; /* Darker Green */
+    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
+}
+
+span:nth-child(3):hover {
+    color: #d4f1c5; /* Light Green */
+    text-shadow: 0 0 10px #d4f1c5, 0 0 20px #d4f1c5, 0 0 30px #d4f1c5, 0 0 40px #d4f1c5, 0 0 50px #d4f1c5;
+}
+
+span:nth-child(4):hover {
+    color: #2c3e50; /* Dark Blue */
+    text-shadow: 0 0 10px #2c3e50, 0 0 20px #2c3e50, 0 0 30px #2c3e50, 0 0 40px #2c3e50, 0 0 50px #2c3e50;
+}
+
+span:nth-child(5):hover {
+    color: #34a853; /* Darker Green */
+    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
+}
+
+span:nth-child(6):hover {
+    color: #62b965; /* Green */
+    text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
+}
+
+span:nth-child(7):hover {
+    color: #d4f1c5; /* Light Green */
+    text-shadow: 0 0 10px #d4f1c5, 0 0 20px #d4f1c5, 0 0 30px #d4f1c5, 0 0 40px #d4f1c5, 0 0 50px #d4f1c5;
+}
+
+span:nth-child(8):hover {
+    color: #34a853; /* Darker Green */
+    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
+}
+
+.message-hover:hover {
+    color: #34a853; /* Darker Green */
+    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
+}
+
+/* Neon Hover Effect for "Notification" Span */
+.notification-hover:hover {
+    color: #d4f1c5; /* Light Green */
+    text-shadow: 0 0 10px #d4f1c5, 0 0 20px #d4f1c5, 0 0 30px #d4f1c5, 0 0 40px #d4f1c5, 0 0 50px #d4f1c5;
+}
+
+/* Neon Hover Effect for "Create" Span */
+.create-hover:hover {
+    color: #62b965; /* Green */
+    text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
+}
+
+/* Neon Hover Effect for "Profile" Span */
+.profile-hover:hover {
+    color: #34a853; /* Darker Green */
+    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
+}
+
+/* Neon Hover Effect for "Settings" Span */
+.setting-hover:hover {
+    color: #2c3e50; /* Dark Blue */
+    text-shadow: 0 0 10px #2c3e50, 0 0 20px #2c3e50, 0 0 30px #2c3e50, 0 0 40px #2c3e50, 0 0 50px #2c3e50;
+}
+
+/* Menu Container Styling */
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 400px;
+    justify-content: space-evenly;
+}
+
+/* Menu Item Styling */
+.menu-down {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-down:hover {
+    background-color: #d4f1c5; /* Light Green */
+}

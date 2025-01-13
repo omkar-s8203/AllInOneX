@@ -1,0 +1,129 @@
+/* Global Styles */
+* {
+    color: rgb(0, 0, 0);
+    /* background-color: #fff; White background for the whole page */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Home Page Styling */
+  .home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 10px;
+    /* background-color: #fff; White background for the homepage */
+  }
+  
+  h1 {
+    color: #62b965; /* Instagram green for main headings */
+    font-size: 2.5em;
+    /* margin-bottom: 40px; */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for a glowing effect */
+  }
+  
+  /* Module Cards */
+  .module-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .card {
+    width: 300px;
+    background-color: #fff; /* White background for each card */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Header of the card */
+  .card-header {
+    background-color: #62b965; /* Instagram green for card header */
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px 15px 0 0;
+  }
+  
+  /* Body of the card */
+  .card-body {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card-body .card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #62b965; /* Green border around images for consistency */
+  }
+  
+  /* Footer of the card */
+  .card-footer {
+    background-color: #3e8e41; /* A slightly darker green for the footer */
+    padding: 10px;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+  }
+  
+  .card-footer:hover {
+    background-color: #62b965; /* Lighter green on hover */
+    cursor: pointer;
+  }
+  
+  .card-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .card-link:hover {
+    color: #ffbb00; /* Golden yellow on hover for contrast */
+    text-decoration: underline;
+  }
+  
+  /* Weather Card Styling */
+  .weather-card {
+    width: 300px;
+    background-color: #fff; /* White background */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .weather-info {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #62b965; /* Green color for weather details */
+  }
+  
+  .weather-card .card-link {
+    color: #ffbb00; /* Golden yellow for the weather card link */
+  }
+  
+  /* Hover effect for weather link */
+  .weather-card .card-link:hover {
+    color: #ff8c00; /* Orange on hover */
+    text-decoration: underline;
+  }
+  

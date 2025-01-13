@@ -1,0 +1,27 @@
+.insta_container {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: azure; */
+  width: 100%;
+}
+
+.bar_col {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.menu_bar {
+  flex: 0 0 20%;  /* Set the width of the MenuBar to 20% */
+  /* background-color: rgb(0, 0, 0);  Optional, to give MenuBar a background */
+}
+
+.main_content {
+  flex: 0 0 60%;  /* Set the width of the MainContent to 60% */
+  /* background-color: white;  Optional, to give MainContent a background */
+}
+
+.follow_suggestions {
+  flex: 0 0 20%;  /* Set the width of FollowSuggestions to 20% */
+  /* background-color: lightgray;  Optional, to give FollowSuggestions a background */
+}

@@ -1,28 +1,40 @@
-// src/context/AuthContext.jsx
-import React, { createContext, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { createContext, useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-// Create Context
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
-// AuthProvider component to wrap the app and provide the context
-export function AuthProvider({ children }) {
+export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const navigate = useNavigate();
 
-  const login = (username, password) => {
-    // Here you can add more complex authentication logic, e.g., API call
-    if (username === "admin" && password === "admin") {
+  // Check authentication status when the app loads
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    console.log("user ::", user);
+
+    // Check if the user exists and set authentication accordingly
+    if (user === "authenticated") {
+      console.log("user getting true::", user);
       setIsAuthenticated(true);
-      navigate("/"); // Navigate to Home Page on successful login
     } else {
-      alert("Invalid login credentials!");
+      console.log("user is null or invalid, setting to false");
+      setIsAuthenticated(false); // Explicitly set to false if user is not authenticated
     }
+  }, []);
+
+  const login = () => {
+    // Store user data (or a token) in localStorage
+    console.log("You are logged in ::");
+
+    localStorage.setItem("user", "authenticated");
+    setIsAuthenticated(true);
   };
 
   const logout = () => {
+    // Remove user data (or token) from localStorage
+    console.log("You are logged out ::");
+
+    localStorage.removeItem("user");
     setIsAuthenticated(false);
-    navigate("/login"); // Redirect to login page when logged out
   };
 
   return (
@@ -30,9 +42,10 @@ export function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
-}
+};
 
-// Custom hook to use authentication context
-export function useAuth() {
-  return useContext(AuthContext);
-}
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default AuthProvider;

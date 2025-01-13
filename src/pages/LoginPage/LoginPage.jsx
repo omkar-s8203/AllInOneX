@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./LoginPage.css";
+// import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
-
+  // const myNavigation =useNavigate();
+  const { login, logout } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -26,14 +29,29 @@ function LoginPage() {
     } else {
       setErrors({ email: "", password: "" });
       alert("Login successful!");
+      handleLogin();
       // Here you can handle API requests for login
     }
+  };
+  const handleLogin = () => {
+    console.log("Calling login function...");
+    login(); // This will call the login function in AuthProvider
+  };
+
+  const handleLogout = () => {
+    console.log("Calling logout function...");
+    logout(); // This will call the logout function in AuthProvider
   };
 
   return (
     <div className="login-page">
       <div className="login-card">
-        <h2>Login</h2>
+        <div>
+          {/* below are the bypass login and logout button use when need */}
+          <button onClick={handleLogin}>Login</button>
+          {/* <button onClick={handleLogout}>Logout</button> */}
+        </div>
+        <h1>Login Page</h1>
         <form onSubmit={handleSubmit}>
           {/* Email Input */}
           <div className="form-group">

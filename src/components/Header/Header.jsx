@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { FaUserAlt } from "react-icons/fa";
 import "./Header.css";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function Header() {
+  const { isAuthenticated, login, logout } = useContext(AuthContext);
+
   return (
     <header className="header">
       <div className="logo-container">
@@ -23,10 +27,20 @@ function Header() {
             <Link className="nav-link" to="/news">News</Link>
           </li>
           <li className="nav-item login-signup">
-            <Link className="nav-link" to="/login">
+          {/* {!isAuthenticated && (
+
+            <>
               <FaUserAlt />
-              Login / Signup
-            </Link>
+              <button onClick={login}>Login</button>
+              </>
+             )} */}
+             {isAuthenticated && (
+              
+              <>
+              <FaUserAlt />
+              <button onClick={logout}>Logout</button>
+              </>
+          )}
           </li>
         </ul>
       </nav>

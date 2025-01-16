@@ -10,7 +10,7 @@
   }
   
   .app-content {
-    height: 90vh; /* Content takes the remaining 90% of the viewport height */
-    overflow-y: auto; /* Allow scrolling if content exceeds the viewport height */
+    height: 90vh; 
+    overflow-y: auto; 
   }
   

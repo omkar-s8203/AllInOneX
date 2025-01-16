@@ -20,9 +20,7 @@ function AppRoutes() {
       <div className="app-container">
         {/* Show header only if the user is authenticated */}
         {isAuthenticated && (
-          <header className="app-header">
             <Header />
-          </header>
         )}
         <main className="app-content">
           <Routes>

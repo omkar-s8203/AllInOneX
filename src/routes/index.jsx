@@ -10,6 +10,7 @@ import Header from "../components/Header/Header";
 import Insta from "../modules/Insta/pages/InstaPage";
 import Shop from "../modules/ECommerce/pages/Shop";
 import "./AppRoutes.css"; // Import CSS for styling
+import  ProfilePage from "../pages/ProfilePage/ProfilePage"
 
 function AppRoutes() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -19,9 +20,7 @@ function AppRoutes() {
       <div className="app-container">
         {/* Show header only if the user is authenticated */}
         {isAuthenticated && (
-          <header className="app-header">
             <Header />
-          </header>
         )}
         <main className="app-content">
           <Routes>
@@ -39,6 +38,7 @@ function AppRoutes() {
               <>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/home" element={<HomePage />} />
+                <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/insta" element={<Insta />} />
                 <Route path="/news" element={<Insta />} />

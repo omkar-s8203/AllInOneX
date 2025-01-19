@@ -4,13 +4,10 @@
     flex-direction: column;
     height: 100vh; /* Full height of the viewport */
   }
-  
-  .app-header {
-    height: 10vh; /* Header takes 10% of the viewport height */
-  }
+
   
   .app-content {
-    height: 90vh; /* Content takes the remaining 90% of the viewport height */
-    overflow-y: auto; /* Allow scrolling if content exceeds the viewport height */
+    height: 90vh; 
+    overflow-y: auto; 
   }
   

@@ -1,10 +1,25 @@
+import LeftSection from "./LeftSection";
 import ProfileHome from "./ProfileHome";
+import RightSection from "./RightSection";
 function ProfilePage() {
     
 
     return <>
-     <h2> This is Profile section</h2>
-    <ProfileHome/>
+     
+     <div className="container mt-5">
+        <div className="row">
+        <div className="col-4">
+        <LeftSection/>
+        </div>
+        <div className="col-8">
+        <RightSection/>
+        </div>
+
+        </div>
+        
+     
+     </div>
+   
     </>
 }
 

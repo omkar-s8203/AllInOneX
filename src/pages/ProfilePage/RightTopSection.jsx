@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import RightBottomSection from "./RightBottomSection";
 
 export default function RightTopSection() {
-  const [activeSelection, setActiveSelection] = useState("sendSMS");
+  const [activeSelection, setActiveSelection] = useState("contacts");
 
   const handleToggle = (section) => {
     setActiveSelection(section);

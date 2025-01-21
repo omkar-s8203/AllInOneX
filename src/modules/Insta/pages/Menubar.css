@@ -51,46 +51,7 @@ span {
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Neon Hover Effect */
-span:nth-child(1):hover {
-    color: #62b965; /* Green */
-    text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
-}
 
-span:nth-child(2):hover {
-    color: #34a853; /* Darker Green */
-    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
-}
-
-span:nth-child(3):hover {
-    color: #d4f1c5; /* Light Green */
-    text-shadow: 0 0 10px #d4f1c5, 0 0 20px #d4f1c5, 0 0 30px #d4f1c5, 0 0 40px #d4f1c5, 0 0 50px #d4f1c5;
-}
-
-span:nth-child(4):hover {
-    color: #2c3e50; /* Dark Blue */
-    text-shadow: 0 0 10px #2c3e50, 0 0 20px #2c3e50, 0 0 30px #2c3e50, 0 0 40px #2c3e50, 0 0 50px #2c3e50;
-}
-
-span:nth-child(5):hover {
-    color: #34a853; /* Darker Green */
-    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
-}
-
-span:nth-child(6):hover {
-    color: #62b965; /* Green */
-    text-shadow: 0 0 10px #62b965, 0 0 20px #62b965, 0 0 30px #62b965, 0 0 40px #62b965, 0 0 50px #62b965;
-}
-
-span:nth-child(7):hover {
-    color: #d4f1c5; /* Light Green */
-    text-shadow: 0 0 10px #d4f1c5, 0 0 20px #d4f1c5, 0 0 30px #d4f1c5, 0 0 40px #d4f1c5, 0 0 50px #d4f1c5;
-}
-
-span:nth-child(8):hover {
-    color: #34a853; /* Darker Green */
-    text-shadow: 0 0 10px #34a853, 0 0 20px #34a853, 0 0 30px #34a853, 0 0 40px #34a853, 0 0 50px #34a853;
-}
 
 .message-hover:hover {
     color: #34a853; /* Darker Green */

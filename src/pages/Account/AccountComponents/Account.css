@@ -1,0 +1,85 @@
+/* Container for the Address Details */
+.address-details-container {
+    padding: 16px;
+  }
+  
+  /* Card Header Section (Title + Edit Button) */
+  .address-details-header {
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Title */
+  .address-details-title {
+    font-size: 2rem;
+    margin: 0;
+    color: #333;
+  }
+  
+  /* Edit Button */
+  .address-details-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+  
+  .address-details-edit-btn svg {
+    margin-right: 8px;
+  }
+  
+  /* Address Row (responsiveness and layout) */
+  .address-details-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  /* Card for Address Details */
+  .address-details-card {
+    flex: 1 1 calc(50% - 16px); /* Two cards per row with gap */
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Label Styling */
+  .address-details-label {
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+  /* Value Styling */
+  .address-details-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #000;
+    padding-left: 1.2rem;
+  }
+  
+  /* Ensure two cards per row for larger screens */
+  @media (min-width: 576px) {
+    .address-details-card {
+      flex: 1 1 calc(50% - 16px); /* 50% width minus spacing */
+    }
+  }
+  
+  /* Adjust card width on smaller screens */
+  @media (max-width: 575px) {
+    .address-details-card {
+      flex: 1 1 100%; /* Full width for each card on smaller screens */
+    }
+  }
+  

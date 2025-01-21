@@ -1,139 +1,116 @@
-import { useEffect, useState } from "react";
+import "./shop.css";
+// import "./JS/index.js";
 
-function Shop() {
-    const [users, setUsers] = useState([]);
-    const [formData, setFormData] = useState({ name: '', email: '', password: '' });
 
-    // Fetch users from the backend
-    useEffect(() => {
-        fetchUsers();
-    }, []);
+function shop() {
+  return (
+    <>
+     
+      <div className="hero-section">
+        <div className="hero-message">
+          <p>
+            You are on amazon.com. You can also shop on Amazon India for
+            millions of products with fast local delivery.{" "}
+            <a href="#">Click here to go to amazon.in</a>
+          </p>
+        </div>
+      </div>
 
-    const fetchUsers = async () => {
-        try {
-            const response = await fetch('http://localhost:3000/users');
-            if (response.ok) {
-                const data = await response.json();
-                setUsers(data);  // Ensure the response is a valid array
-            } else {
-                console.error("Failed to fetch users:", response.statusText);
-            }
-        } catch (error) {
-            console.error("Error fetching users:", error);
-        }
-    };
+      {/* Product Section */}
+      <div className="product">
+        <div className="product-message">
+          <p>Top picks for your home</p>
+        </div>
+      </div>
 
-    // Handle form input changes
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    // Handle form submission
-    const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent form from reloading the page
-        if (!formData.name || !formData.email || !formData.password) {
-            alert("Please fill out all fields!");
-            return;
-        }
-
-        try {
-            const response = await fetch('http://localhost:3000/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData), // Sending the whole formData, including name, email, and password
-            });
-
-            if (response.ok) {
-                setFormData({ name: '', email: '', password: '' }); // Reset form
-                fetchUsers(); // Refresh user list
-            } else {
-                const error = await response.json();
-                console.error("Failed to add user:", error.message);
-            }
-        } catch (error) {
-            console.error("Error adding user:", error);
-        }
-    };
-
-    return (
-        <>
-            <h2>This is the shop page!</h2>
-            <h2>User Registration</h2>
-
-            {/* Registration Form */}
-            <div className="form">
-                <form onSubmit={handleSubmit}>
-                    <h4>
-                        Name: 
-                        <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </h4>
-                    <h4>
-                        Email: 
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </h4>
-                    <h4>
-                        Password: 
-                        <input
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </h4>
-                    <button type="submit">Submit</button>
-                </form>
+      {/* Shop Section */}
+      <div className="shop-section">
+        {[...Array(4)].map((_, index) => (
+          <div className="box1 box" key={index}>
+            <div className="box-content">
+              <h2>Health & Personal Care</h2>
+              <div
+                className="box-img"
+                style={{
+                  backgroundImage: `url(https://images-eu.ssl-images-amazon.com/images/G/08/warehouse-deals/off_cycle_10_HP_24Q4_desktop_379x304._SY304_CB544485942_.jpg)`,
+                }}
+              ></div>
+              <p>See More</p>
             </div>
+          </div>
+        ))}
+      </div>
 
-            {/* User List */}
-            <h2>User List</h2>
-<div>
-<h2>User List</h2>
-<div>
-    <h1>Users</h1>
-    <table className="user-table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            {users.length > 0 ? (
-                users.map((userd, index) => (
-                    <tr key={index}>
-                        <td>{userd.user_name}</td>
-                        <td>{userd.user_email}</td>
-                    </tr>
-                ))
-            ) : (
-                <tr>
-                    <td colSpan="2">No users found.</td>
-                </tr>
-            )}
-        </tbody>
-    </table>
-</div>
+      <div className="shop-section">
+        {[...Array(4)].map((_, index) => (
+          <div className="box1 box" key={index + 4}>
+            <div className="box-content">
+              <h2>Health & Personal Care</h2>
+              <div
+                className="box-img"
+                style={{
+                  backgroundImage: `url(https://images-eu.ssl-images-amazon.com/images/G/08/EU-STORES/2024/SL/Q4/12Dec/WinterSales/EU5/BxGy/Exp_HP_Dt_Cat_Card_379x304_25kb._SY304_CB552797205_.jpg)`,
+                }}
+              ></div>
+              <p>See More</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-</div>
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-box">
+            <h3>Get to Know Us</h3>
+            <p>Careers</p>
+            <p>Blog</p>
+            <p>About Amazon</p>
+            <p>Investor Relations</p>
+            <p>Amazon Devices</p>
+            <p>Amazon Tours</p>
+          </div>
+          <div className="footer-box">
+            <h3>Make Money with Us</h3>
+            <p>Sell products on Amazon</p>
+            <p>Sell on Amazon Handmade</p>
+            <p>Product and Build Your Brand</p>
+            <p>Associates Programme</p>
+            <p>Fulfillment by Amazon</p>
+            <p>Supply to Amazon</p>
+            <p>Advertise Your Product</p>
+            <p>Independently Publish with Us</p>
+            <p>Amazon Pay</p>
+            <p>See More Make Money With Us</p>
+          </div>
 
-        </>
-    );
+          <div className="footer-box">
+            <h3>Amazon Payment Methods</h3>
+            <p>Amazon Business Amex Card</p>
+            <p>Payment Method Help</p>
+            <p>Amazon Currency Converter</p>
+            <p>Gift Cards</p>
+            <p>Top up Your Account</p>
+            <p>Top up Your Account in Store</p>
+          </div>
+
+          <div className="footer-box">
+            <h3>Let Us Help You</h3>
+            <p>Track Package or View Orders</p>
+            <p>Delivery Rates & Policies</p>
+            <p>Returns & Replacements</p>
+            <p>Legal Guarantee</p>
+            <p>Recalls and Product Safety Alerts</p>
+            <p>Recycling</p>
+            <p>Amazon Mobile App</p>
+            <p>Customer Service</p>
+            <p>Accessibility</p>
+            <p>Gift List</p>
+            <p>Report Illegal Content</p>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
 }
 
-export default Shop;
+export default shop;

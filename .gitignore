@@ -25,3 +25,4 @@ dist-ssr
 
 
 .AllInOneX_express/node_modules
+.AllInOneX_express/package-lock.json

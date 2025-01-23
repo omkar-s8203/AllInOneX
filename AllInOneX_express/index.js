@@ -1,15 +1,24 @@
 const express = require('express');
-const app = express();
-const userRoutes = require('./routes/userRoutes');
+const bodyParser = require('body-parser');
+const userRoutes = require('./routes/userRoutes'); // Adjust the path as necessary
 const authMiddleware = require('./middleware/authMiddleware');
-
-app.use(authMiddleware);  // Use the auth middleware globally (if needed)
-app.use(express.json());
-
-// Use the userRoutes for user-related functionality
-app.use('/api', userRoutes);
-
+const app = express();
 const PORT = 3000;
+app.use(authMiddleware);  // Use the auth middleware globally (if needed)
+// Middleware
+app.use(bodyParser.json()); // For parsing JSON requests
+
+// Default route
+app.get('/', (req, res) => {
+    res.send('Welcome to AllInOneX!');
+});
+
+// Mount routes
+app.use('/api/user', userRoutes); // Base path for user routes
+
+
+
+// Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server running at http://localhost:${PORT}`);
 });

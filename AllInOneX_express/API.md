@@ -87,3 +87,95 @@ curl --location 'http://localhost:3000/api/user/status/inactive'
 [{"user_id":3,"created_by":1,"username":"johndoe","email":"john@example.com","mobile":"1234567892","password":"hashedpassword","status":"inactive","created_at":"2025-01-23T17:10:19.000Z","updated_at":"2025-01-24T10:11:01.000Z","last_login":null,"role":"user"}]
 <!-- End here -->
 
+<!----------------------------------------- Insta module APIT  --------------------------->
+
+<!-- Create Posts table -->
+CREATE TABLE posts (
+    post_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL, -- Foreign key from users table
+    post_title VARCHAR(255), -- Title of the post
+    post_caption TEXT, -- Caption for the post
+    media_type ENUM('image', 'video', 'carousel') NOT NULL, -- Type of media
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Post creation timestamp
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- Post update timestamp
+    is_active BOOLEAN DEFAULT TRUE, -- Indicates if the post is active
+    visibility ENUM('public', 'private', 'friends') DEFAULT 'public', -- Privacy settings
+    tags JSON, -- JSON format to store hashtags or mentions
+    location VARCHAR(255), -- Location or geotag information
+    FOREIGN KEY (user_id) REFERENCES users(user_id) -- Linking to users table
+);
+<!-- Query OK, 0 rows affected  -->
+
+<!-- Table: post_media
+This table handles multiple media items for a single post. -->
+CREATE TABLE post_media (
+    media_id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT NOT NULL, -- Foreign key referencing posts
+    media_url VARCHAR(255) NOT NULL, -- URL or path to the media file
+    media_type ENUM('image', 'video') NOT NULL, -- Type of media
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Media creation timestamp
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- Media update timestamp
+    FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE -- Deletes media when the post is deleted
+);
+
+Query OK, 0 rows affected (0.06 sec)
+<!--  -->
+<!-- Table: comments
+This table stores comments on posts -->
+CREATE TABLE comments (
+    comment_id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT NOT NULL, -- Foreign key referencing posts
+    user_id INT NOT NULL, -- Foreign key referencing users
+    comment_text TEXT NOT NULL, -- The comment content
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Comment creation timestamp
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- Comment update timestamp
+    is_active BOOLEAN DEFAULT TRUE, -- Indicates if the comment is active
+    FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE, -- Deletes comments when the post is deleted
+    FOREIGN KEY (user_id) REFERENCES users(user_id) -- Links the comment to the user
+);
+<!--  -->
+
+<!--  Table: likes
+This table tracks likes for posts -->
+CREATE TABLE likes (
+    like_id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT NOT NULL, -- Foreign key referencing posts
+    user_id INT NOT NULL, -- Foreign key referencing users
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Like creation timestamp
+    FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE, -- Deletes likes when the post is deleted
+    FOREIGN KEY (user_id) REFERENCES users(user_id), -- Links the like to the user
+    UNIQUE (post_id, user_id) -- Ensures a user can like a post only once
+);
+<!-- Post table creation complete here.. -->
+
+<!-- Post module API -->
+<!-- Create Post Select type POST  -->
+curl --location 'http://localhost:3000/api/posts/create' \
+--header 'Content-Type: application/json' \
+--data '{
+    "user_id": 2,
+    "post_title": "My Travel Post",
+    "post_caption": "Exploring new places!",
+    "media_type": "image",
+    "visibility": "friends",
+    "tags": ["#travel", "#adventure"],
+    "location": "Himalayas"
+}
+'
+<!-- Response -->
+{
+    "message": "Post created successfully.",
+    "post_id": 101
+}
+
+{
+    "error": "User ID and media type are required."
+}
+{
+    "error": "Failed to create post."
+}
+<!-- End here -->
+
+
+
+

@@ -14,7 +14,7 @@ function HomePage() {
             <h2>Instagram</h2>
           </div>
           <div className="card-body">
-            <img src="https://via.placeholder.com/150" alt="Instagram" className="card-image" />
+            <img src="https://img.freepik.com/free-vector/instagram-logo_1199-122.jpg" alt="Instagram" className="card-image" />
             <p>Explore posts, reels, stories, and more from your favorite creators.</p>
           </div>
           <div className="card-footer">
@@ -28,7 +28,7 @@ function HomePage() {
             <h2>News</h2>
           </div>
           <div className="card-body">
-            <img src="https://via.placeholder.com/150" alt="News" className="card-image" />
+            <img src="https://www.fda.gov/files/CDER-whatsnew.png" alt="News" className="card-image" />
             <p>Stay updated with the latest news and trends from around the world.</p>
           </div>
           <div className="card-footer">
@@ -42,7 +42,7 @@ function HomePage() {
             <h2>Shop</h2>
           </div>
           <div className="card-body">
-            <img src="https://via.placeholder.com/150" alt="Shop" className="card-image" />
+            <img src="https://i0.wp.com/www.drukbees.com/wp-content/uploads/2019/01/shop.jpg?w=1672&ssl=1" alt="Shop" className="card-image" />
             <p>Browse and shop for your favorite products, from electronics to apparel.</p>
           </div>
           <div className="card-footer">

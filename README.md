@@ -8,4 +8,20 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-Logged in Gaytri's PC with GIT Cred
+
+GitHub.copilot-chat
+Angular.ng-template
+GitHub.copilot
+eamodio.gitlens
+vscode.git
+streetsidesoftware.code-spell-checker
+VisualStudioExptTeam.intellicode-api-usage-examples
+ms-vscode-remote.remote-containers
+GitHub.codespaces
+vscode.html-language-features
+vscode.typescript-language-features
+esbenp.prettier-vscode
+VisualStudioExptTeam.vscodeintellicode
+vscode.github-authentication
+vscode.json-language-features
+oderwat.indent-rainbow

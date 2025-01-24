@@ -176,6 +176,35 @@ curl --location 'http://localhost:3000/api/posts/create' \
 }
 <!-- End here -->
 
+<!-- Get Posts List -->
+
+curl --location 'http://localhost:3000/api/posts/fetch?user_id=1&post_id=1&visibility=public&visibility=private&visibility=friends'
+
+Note: untick params from list when you call api
+<!-- Response -->
+[
+    {
+        "post_id": 1,
+        "user_id": 1,
+        "post_title": "My First Post",
+        "post_caption": "This is a test caption",
+        "media_type": "image",
+        "created_at": "2025-01-24T13:11:04.000Z",
+        "updated_at": "2025-01-24T13:11:04.000Z",
+        "is_active": 1,
+        "visibility": "public",
+        "tags": [
+            "#fun",
+            "#coding"
+        ],
+        "location": "San Francisco"
+    }
+]
+<!-- Handle Error -->
+ "message": "No posts found."
+   "error": "Failed to fetch posts."
+<!--  End here -->
+
 
 
 

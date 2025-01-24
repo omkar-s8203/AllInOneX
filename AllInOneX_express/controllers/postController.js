@@ -32,6 +32,30 @@ const createPost = async (req, res) => {
     }
 };
 
+
+// Controller to get posts
+const getPosts = async (req, res) => {
+    try {
+        const filters = {
+            post_id: req.query.post_id,   // Get post by ID
+            user_id: req.query.user_id,  // Get posts by a specific user
+            visibility: req.query.visibility, // Filter by visibility
+        };
+
+        const posts = await Post.getPosts(filters);
+
+        if (posts.length === 0) {
+            return res.status(404).json({ message: 'No posts found.' });
+        }
+
+        res.status(200).json(posts);
+    } catch (err) {
+        console.error('Error fetching posts:', err);
+        res.status(500).json({ error: 'Failed to fetch posts.' });
+    }
+};
+
 module.exports = {
     createPost,
+    getPosts,
 };

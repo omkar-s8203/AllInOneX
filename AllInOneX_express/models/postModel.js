@@ -34,6 +34,36 @@ const createPost = (userId, postTitle, postCaption, mediaType, isActive = true, 
     });
 };
 
+const getPosts = (filters) => {
+    return new Promise((resolve, reject) => {
+        let query = 'SELECT * FROM posts WHERE 1=1'; // Base query
+        const params = [];
+
+        // Add filters dynamically
+        if (filters.post_id) {
+            query += ' AND post_id = ?';
+            params.push(filters.post_id);
+        }
+        if (filters.user_id) {
+            query += ' AND user_id = ?';
+            params.push(filters.user_id);
+        }
+        if (filters.visibility) {
+            query += ' AND visibility = ?';
+            params.push(filters.visibility);
+        }
+
+        connection.query(query, params, (err, results) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+};
+
 module.exports = {
     createPost,
+    getPosts,
 };

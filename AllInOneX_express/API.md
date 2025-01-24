@@ -31,11 +31,11 @@ VALUES (1, 'Omkar', 'omkar@example.com', '1234567891', 'admin', 'active', 'admin
 SELECT * FROM users;
 
 <!-- Get users list curld for postman GET-->
-curl --location 'http://localhost:3000/api/user/users'
+curl --location 'http://localhost:3000/api/user/fetch'
 
 <!-- Create new user list curl request for postman POST-->
 
-curl --location 'http://localhost:3000/api/user/create-user' \
+curl --location 'http://localhost:3000/api/user/create' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "createdBy": 1,

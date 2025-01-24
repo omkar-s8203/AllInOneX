@@ -54,9 +54,25 @@ const isFieldUnique = (field, value) => {
     });
 };
 
+const updateUserStatus = (userId, status) => {
+    return new Promise((resolve, reject) => {
+        const query = `UPDATE users SET status = ? WHERE user_id = ?`;
+        connection.query(query, [status, userId], (err, result) => {
+            if (err) {
+                reject(err);
+            } else if (result.affectedRows === 0) {
+                reject(new Error('User not found'));
+            } else {
+                resolve(result);
+            }
+        });
+    });
+};
+
 
 module.exports = {
     getAllUsers,
     createUser,
+    updateUserStatus,
     isFieldUnique
 };

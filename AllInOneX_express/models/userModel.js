@@ -69,10 +69,29 @@ const updateUserStatus = (userId, status) => {
     });
 };
 
+const findUserByField = (field, value) => {
+    return new Promise((resolve, reject) => {
+        const query = `SELECT * FROM users WHERE ${field} = ? AND status = 'active'`;
+        connection.query(query, [value], (err, results) => {
+            if (err) {
+                reject(err);
+            } else if (results.length === 0) {
+                reject(new Error('User not found or inactive'));
+            } else {
+                resolve(results[0]);
+            }
+        });
+    });
+};
+
+
 
 module.exports = {
     getAllUsers,
     createUser,
     updateUserStatus,
+    findUserByField,
+
+
     isFieldUnique
 };

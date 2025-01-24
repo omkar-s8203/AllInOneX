@@ -4,6 +4,21 @@ CREATE DATABASE express_app
 <!-- Select db to use -->
 USE express_app;
 
+<!-- mysql> CREATE TABLE users (
+    ->     user_id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     created_by INT,
+    ->     username VARCHAR(255) UNIQUE,
+    ->     email VARCHAR(255) UNIQUE,
+    ->     mobile VARCHAR(15) UNIQUE,
+    ->     password VARCHAR(255) NOT NULL,
+    ->     status ENUM('active', 'inactive', 'banned') DEFAULT 'active',
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ->     last_login TIMESTAMP,
+    ->     role ENUM('user', 'admin', 'moderator') DEFAULT 'user',
+    ->     FOREIGN KEY (created_by) REFERENCES users(user_id)
+    -> ); -->
+
 <!-- Insert query for Super Admin only once when we create new db -->
 Insert a super admin or initial user (no 'created_by' reference)
 INSERT INTO users (username, email, mobile, password, status, role)
@@ -33,4 +48,36 @@ curl --location 'http://localhost:3000/api/user/create-user' \
 }
 '
 <!-- END here -->
+
+<!-- Delete Inactive user -->
+curl --location --request DELETE 'http://localhost:3000/api/user/delete/3'
+<!-- Backend Response: delete -->
+
+Success: { message: "User with ID 1 has been marked as inactive." }
+Error (User Not Found): { error: "User not found" }
+<!-- End here -->
+
+<!-- Login API -->
+curl --location 'http://localhost:3000/api/user/login' \
+--header 'Content-Type: application/json' \
+--data '{
+    "loginId": "omkar", 
+    "password": "1234567891"
+}
+'
+<!-- Response -->
+{
+    "message": "Login successful",
+    "user": {
+        "id": 2,
+        "username": "Omkar",
+        "email": "omkar@example.com",
+        "role": "admin"
+    }
+}
+
+{ "error": "User not found or inactive" }
+{ "error": "Both login ID and password are required." }
+"error": "Invalid credentials, please enter correct password!"
+<!-- End here -->
 

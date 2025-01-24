@@ -1,5 +1,6 @@
 const db = require('../config/db.json');  // We'll load this later
 const mysql = require('mysql2');
+// const bcrypt = require('bcrypt'); not using now
 
 // MySQL connection setup
 const connection = mysql.createConnection(db);
@@ -64,3 +65,56 @@ exports.softDeleteUser = async (req, res) => {
         }
     }
 };
+
+
+// Login user
+exports.loginUser = async (req, res) => {
+    const { loginId, password } = req.body;
+
+    try {
+        // Validate input
+        if (!loginId || !password) {
+            return res.status(400).json({
+                error: 'Both login ID and password are required.',
+            });
+        }
+
+        // Determine the field type (username, email, or mobile)
+        let field;
+        if (loginId.includes('@')) {
+            field = 'email'; // Login ID contains '@', assume it's an email
+        } else if (!isNaN(loginId) && loginId.length >= 10) {
+            field = 'mobile'; // Login ID is numeric and likely a mobile number
+        } else {
+            field = 'username'; // Otherwise, treat it as a username
+        }
+
+        // Find the user by the identified field
+        const user = await userModel.findUserByField(field, loginId);
+
+        // Verify the password
+        // const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (password !== user.password) {
+            return res.status(401).json({ error: 'Invalid credentials, please enter correct password!' });
+        }
+
+        // Send a success response
+        res.status(200).json({
+            message: 'Login successful',
+            user: {
+                id: user.user_id,
+                username: user.username,
+                email: user.email,
+                role: user.role,
+            },
+        });
+    } catch (error) {
+        console.error(error);
+        if (error.message === 'User not found or inactive') {
+            res.status(404).json({ error: 'User not found or inactive' });
+        } else {
+            res.status(500).json({ error: 'Login failed' });
+        }
+    }
+};
+

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes'); // Adjust the path as necessary
+const postRoutes = require('./routes/postRoutes');
 const authMiddleware = require('./middleware/authMiddleware');
 const app = express();
 const PORT = 3000;
@@ -16,6 +17,8 @@ app.get('/', (req, res) => {
 // Mount routes
 app.use('/api/user', userRoutes); // Base path for user routes
 
+// Mount post routes
+app.use('/api/posts', postRoutes);
 
 
 // Start the server

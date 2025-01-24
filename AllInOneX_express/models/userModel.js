@@ -54,9 +54,58 @@ const isFieldUnique = (field, value) => {
     });
 };
 
+const updateUserStatus = (userId, status) => {
+    return new Promise((resolve, reject) => {
+        const query = `UPDATE users SET status = ? WHERE user_id = ?`;
+        connection.query(query, [status, userId], (err, result) => {
+            if (err) {
+                reject(err);
+            } else if (result.affectedRows === 0) {
+                reject(new Error('User not found'));
+            } else {
+                resolve(result);
+            }
+        });
+    });
+};
+
+const findUserByField = (field, value) => {
+    return new Promise((resolve, reject) => {
+        const query = `SELECT * FROM users WHERE ${field} = ? AND status = 'active'`;
+        connection.query(query, [value], (err, results) => {
+            if (err) {
+                reject(err);
+            } else if (results.length === 0) {
+                reject(new Error('User not found or inactive'));
+            } else {
+                resolve(results[0]);
+            }
+        });
+    });
+};
+
+const getUsersByStatus = (status) => {
+    return new Promise((resolve, reject) => {
+        const query = `SELECT * FROM users WHERE status = ?`;
+        connection.query(query, [status], (err, results) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+};
+
+
 
 module.exports = {
     getAllUsers,
     createUser,
+    updateUserStatus,
+    findUserByField,
+    getUsersByStatus,
+
+
     isFieldUnique
 };

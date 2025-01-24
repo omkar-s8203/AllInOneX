@@ -84,6 +84,19 @@ const findUserByField = (field, value) => {
     });
 };
 
+const getUsersByStatus = (status) => {
+    return new Promise((resolve, reject) => {
+        const query = `SELECT * FROM users WHERE status = ?`;
+        connection.query(query, [status], (err, results) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+};
+
 
 
 module.exports = {
@@ -91,6 +104,7 @@ module.exports = {
     createUser,
     updateUserStatus,
     findUserByField,
+    getUsersByStatus,
 
 
     isFieldUnique

@@ -118,3 +118,25 @@ exports.loginUser = async (req, res) => {
     }
 };
 
+// Get users by status
+exports.getUsersByStatus = async (req, res) => {
+    const { status } = req.params;
+
+    try {
+        // Validate the status value
+        if (!['active', 'inactive', 'banned'].includes(status)) {
+            return res.status(400).json({ error: 'Invalid status value. Allowed values: active, inactive, banned' });
+        }
+
+        // Fetch users by status
+        const users = await userModel.getUsersByStatus(status);
+
+        // Return the users
+        res.status(200).json(users);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to fetch users by status' });
+    }
+};
+
+

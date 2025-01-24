@@ -14,4 +14,7 @@ router.delete('/delete/:userId', userController.softDeleteUser);
 // Login route
 router.post('/login', userController.loginUser);
 
+// Get users by status
+router.get('/status/:status', userController.getUsersByStatus);
+
 module.exports = router;

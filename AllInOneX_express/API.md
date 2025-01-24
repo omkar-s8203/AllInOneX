@@ -30,10 +30,10 @@ VALUES (1, 'Omkar', 'omkar@example.com', '1234567891', 'admin', 'active', 'admin
 <!-- Get users list cmd -->
 SELECT * FROM users;
 
-<!-- Get users list curld for postman -->
+<!-- Get users list curld for postman GET-->
 curl --location 'http://localhost:3000/api/user/users'
 
-<!-- Create new user list curl request for postman -->
+<!-- Create new user list curl request for postman POST-->
 
 curl --location 'http://localhost:3000/api/user/create-user' \
 --header 'Content-Type: application/json' \
@@ -49,7 +49,7 @@ curl --location 'http://localhost:3000/api/user/create-user' \
 '
 <!-- END here -->
 
-<!-- Delete Inactive user -->
+<!-- Delete Inactive user DELETE-->
 curl --location --request DELETE 'http://localhost:3000/api/user/delete/3'
 <!-- Backend Response: delete -->
 
@@ -57,7 +57,7 @@ Success: { message: "User with ID 1 has been marked as inactive." }
 Error (User Not Found): { error: "User not found" }
 <!-- End here -->
 
-<!-- Login API -->
+<!-- Login API POST -->
 curl --location 'http://localhost:3000/api/user/login' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -79,5 +79,11 @@ curl --location 'http://localhost:3000/api/user/login' \
 { "error": "User not found or inactive" }
 { "error": "Both login ID and password are required." }
 "error": "Invalid credentials, please enter correct password!"
+<!-- End here -->
+
+<!-- Get User list status wise GET -->
+curl --location 'http://localhost:3000/api/user/status/inactive'
+<!-- Response -->
+[{"user_id":3,"created_by":1,"username":"johndoe","email":"john@example.com","mobile":"1234567892","password":"hashedpassword","status":"inactive","created_at":"2025-01-23T17:10:19.000Z","updated_at":"2025-01-24T10:11:01.000Z","last_login":null,"role":"user"}]
 <!-- End here -->
 

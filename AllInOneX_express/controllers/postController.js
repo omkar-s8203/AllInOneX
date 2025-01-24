@@ -55,7 +55,37 @@ const getPosts = async (req, res) => {
     }
 };
 
+// Controller to edit a post
+const editPost = async (req, res) => {
+    try {
+        const { post_id } = req.params; // Get post ID from the URL
+        const user_id = req.body.user_id; // Get user ID from the request body
+        const updates = req.body.updates; // Get updates object from the request body
+
+        if (!post_id || !user_id || !updates) {
+            return res.status(400).json({ error: 'Post ID, User ID, and updates are required.' });
+        }
+
+        // Validate updates to avoid empty fields
+        if (Object.keys(updates).length === 0) {
+            return res.status(400).json({ error: 'No updates provided.' });
+        }
+
+        // Perform the update
+        const result = await Post.updatePost(post_id, user_id, updates);
+
+        res.status(200).json({
+            message: 'Post updated successfully.',
+            affectedRows: result.affectedRows,
+        });
+    } catch (err) {
+        console.error('Error editing post:', err);
+        res.status(500).json({ error: err.message });
+    }
+};
+
 module.exports = {
     createPost,
     getPosts,
+    editPost,
 };

@@ -205,6 +205,28 @@ Note: untick params from list when you call api
    "error": "Failed to fetch posts."
 <!--  End here -->
 
+<!-- Edit Pos use PUT method -->
+PUT http://localhost:3000/api/posts/edit/:post_id
 
+{
+    "user_id": 1,
+    "updates": {
+        "post_title": "Updated Post Title",
+        "post_caption": "Updated Caption",
+        "visibility": "friends"
+    }
+}
+Response:
+{
+    "message": "Post updated successfully.",
+    "affectedRows": 1
+}
+Error response:
+{
+    "error": "Post ID, User ID, and updates are required."
+}
 
+Failure 404: 
+"error": "Post not found or unauthorized action."
 
+<!--  -->

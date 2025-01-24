@@ -62,8 +62,35 @@ const getPosts = (filters) => {
         });
     });
 };
+const updatePost = (postId, userId, updates) => {
+    return new Promise((resolve, reject) => {
+        let query = 'UPDATE posts SET';
+        const params = [];
+        const fields = [];
+
+        // Dynamically generate query fields based on updates
+        for (const key in updates) {
+            fields.push(`${key} = ?`);
+            params.push(updates[key]);
+        }
+
+        query += ` ${fields.join(', ')} WHERE post_id = ? AND user_id = ?`;
+        params.push(postId, userId);
+
+        connection.query(query, params, (err, result) => {
+            if (err) {
+                reject(err);
+            } else if (result.affectedRows === 0) {
+                reject(new Error('Post not found or unauthorized action.'));
+            } else {
+                resolve(result);
+            }
+        });
+    });
+};
 
 module.exports = {
     createPost,
     getPosts,
+    updatePost,
 };

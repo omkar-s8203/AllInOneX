@@ -89,8 +89,28 @@ const updatePost = (postId, userId, updates) => {
     });
 };
 
+const deletePost = (postId, userId) => {
+    return new Promise((resolve, reject) => {
+        const query = `
+            UPDATE posts 
+            SET is_active = false 
+            WHERE post_id = ? AND user_id = ? AND is_active = true
+        `;
+        connection.query(query, [postId, userId], (err, result) => {
+            if (err) {
+                reject(err);
+            } else if (result.affectedRows === 0) {
+                reject(new Error('Post not found or unauthorized action.'));
+            } else {
+                resolve(result);
+            }
+        });
+    });
+};
+
 module.exports = {
     createPost,
     getPosts,
     updatePost,
+    deletePost,
 };

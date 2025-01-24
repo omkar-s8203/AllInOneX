@@ -229,4 +229,31 @@ Error response:
 Failure 404: 
 "error": "Post not found or unauthorized action."
 
-<!--  -->
+<!-- End here... -->
+
+<!-- DELETE Post Curl request -->
+curl --location --request DELETE 'http://localhost:3000/api/posts/delete/2' \
+--header 'Content-Type: application/json' \
+--data '{
+    "user_id": 2
+}
+'
+<!--  DELETE Post API req-->
+DELETE http://localhost:3000/api/posts/delete/:post_id
+Request body: {
+    "user_id": 1
+}
+Success Response:{
+    "message": "Post deleted successfully.",
+    "affectedRows": 1
+}
+Failure (400 Bad Request):{
+    "error": "Post ID and User ID are required."
+}
+Failure (404 Not Found):{
+    "error": "Post not found or unauthorized action."
+}
+Failure (500 Internal Server Error):{
+    "error": "Failed to delete post."
+}
+<!-- End here -->

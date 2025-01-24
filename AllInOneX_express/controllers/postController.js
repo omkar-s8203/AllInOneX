@@ -84,8 +84,33 @@ const editPost = async (req, res) => {
     }
 };
 
+// Controller to delete a post
+const deletePost = async (req, res) => {
+    try {
+        const { post_id } = req.params; // Get post ID from the URL
+        const user_id = req.body.user_id; // Get user ID from the request body
+
+        if (!post_id || !user_id) {
+            return res.status(400).json({ error: 'Post ID and User ID are required.' });
+        }
+
+        // Perform the deletion (soft-delete)
+        const result = await Post.deletePost(post_id, user_id);
+
+        res.status(200).json({
+            message: 'Post deleted successfully.',
+            affectedRows: result.affectedRows,
+        });
+    } catch (err) {
+        console.error('Error deleting post:', err);
+        res.status(500).json({ error: err.message });
+    }
+};
+
 module.exports = {
     createPost,
     getPosts,
     editPost,
+    deletePost,
 };
+

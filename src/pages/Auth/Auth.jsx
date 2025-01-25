@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Login from "./Login";
+import LoginPage from "./Login";
 import Signup from "./Signup";
 import ForgotPassword from "./ForgotPassword";
 import Footer from "./Footer";
@@ -10,13 +10,13 @@ const Auth = () => {
     const renderComponent = () => {
         switch (view) {
             case "login":
-                return <Login setView={setView} />;
+                return <LoginPage setView={setView} />;
             case "signup":
                 return <Signup setView={setView} />;
             case "forgotPassword":
                 return <ForgotPassword setView={setView} />;
             default:
-                return <Login setView={setView} />;
+                return <LoginPage setView={setView} />;
         }
     };
 

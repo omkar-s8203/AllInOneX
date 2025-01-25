@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Blogging from "../modules/Blogging/pages/BloggingPage";
@@ -10,9 +15,9 @@ import Header from "../components/Header/Header";
 import Insta from "../modules/Insta/pages/InstaPage";
 import Shop from "../modules/ECommerce/pages/Shop";
 import "./AppRoutes.css"; // Import CSS for styling
-import  ProfilePage from "../pages/ProfilePage/ProfilePage"
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import AccountPage from "../pages/Account/AccountHomePage";
-import Auth from "../pages/Auth/Auth"
+import Auth from "../pages/Auth/Auth";
 
 function AppRoutes() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -21,17 +26,18 @@ function AppRoutes() {
     <Router>
       <div className="app-container">
         {/* Show header only if the user is authenticated */}
-        {isAuthenticated && (
-            <Header />
-        )}
-        <main className="app-content" style={isAuthenticated ? {} : { height: '100vh' }}>
+        {isAuthenticated && <Header />}
+        <main
+          className="app-content"
+          style={isAuthenticated ? {} : { height: "100vh" }}
+        >
           <Routes>
             {/* Public Routes */}
             {!isAuthenticated && (
               <>
-              {/* Add the route for Auth */}
-              <Route path="/auth" element={<Auth />} />
-              {/* <Route path="/auth" element={<Auth />}>
+                {/* Add the route for Auth */}
+                <Route path="/auth" element={<Auth />} />
+                {/* <Route path="/auth" element={<Auth />}>
                   <Route path="login" element={<Login />} />
                   <Route path="signup" element={<Signup />} />
                   <Route path="forgot-password" element={<ForgotPassword />} />

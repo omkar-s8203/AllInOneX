@@ -12,20 +12,18 @@ export const AuthProvider = ({ children }) => {
     console.log("user ::", user);
 
     // Check if the user exists and set authentication accordingly
-    if (user === "authenticated") {
-      console.log("user getting true::", user);
+    if (user && user.id) {
       setIsAuthenticated(true);
     } else {
-      console.log("user is null or invalid, setting to false");
       setIsAuthenticated(false); // Explicitly set to false if user is not authenticated
     }
   }, []);
 
-  const login = () => {
+  const login = (val) => {
     // Store user data (or a token) in localStorage
     console.log("You are logged in ::");
 
-    localStorage.setItem("user", "authenticated");
+    localStorage.setItem("user", val);
     setIsAuthenticated(true);
   };
 

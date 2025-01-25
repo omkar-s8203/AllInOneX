@@ -7,7 +7,7 @@ function MenuBar({ setView }) {
     <div className="menu-bar">
       <div>
         <span className="Instagram">
-          <FaInstagram className="logoi" /> Instagram
+          <FaInstagram className="logoi" /> InstBinsta
         </span>
       </div>
 

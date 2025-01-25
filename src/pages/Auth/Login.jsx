@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import Footer from "./Footer";
-import { login } from "../../services/authService";
+import React, { useState, useContext } from "react";
+import { loginCall } from "../../services/authService";
 import { useAlert } from "../../context/AlertContext";
+import { AuthContext } from "../../context/AuthContext";
 
-const Login = ({ setView }) => {
+
+const LoginPage = ({ setView }) => {
   // Create state to hold form input values
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(""); // To store any error messages
   const [loading, setLoading] = useState(false); // To handle loading state
   const { showAlert } = useAlert();
+  const { login, logout } = useContext(AuthContext);
 //   showAlert("Action was successful!", "success");
   // Handle form submission
   const handleSubmit = async (event) => {
@@ -22,12 +24,13 @@ const Login = ({ setView }) => {
     }
     setLoading(true);
     try {
-        const response = await login(loginId, password);  // Call the login API
+        const response = await loginCall(loginId, password);  // Call the login API
         
-        if (response.status === 200 && response.data.message === 'Login successful') {
+        if (response && response.status === 200 && response.data.message === 'Login successful') {
             console.log("Login successful:", response.data);
             showAlert(response.data.message, "success");
             // Handle successful login (e.g., save token, redirect user)
+            login(JSON.stringify(response.data.user));
         } else {
             setError(response.data.message || 'Login failed');
             
@@ -41,6 +44,8 @@ const Login = ({ setView }) => {
         setLoading(false); // Stop loading spinner
     }
   };
+
+
 
   return (
     <>
@@ -88,4 +93,4 @@ const Login = ({ setView }) => {
   );
 };
 
-export default Login;
+export default LoginPage;

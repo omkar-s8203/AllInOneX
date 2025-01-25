@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Footer from "./Footer";
-import { signup } from '../../services/authService';
+import { signup } from "../../services/authService";
 
 const Signup = ({ setView }) => {
   const [formData, setFormData] = useState({
@@ -53,7 +53,7 @@ const Signup = ({ setView }) => {
       //   body: JSON.stringify({ formData: dataToSend }), // Send data in the array format
       // });
       const response = await signup(dataToSend);
-      console.log('Signup Successful:', response.data);
+      console.log("Signup Successful:", response.data);
       if (response.ok) {
         // Handle successful signup (e.g., show success message, redirect user, etc.)
         console.log("Signup successful!");

@@ -41,11 +41,7 @@ function Header() {
               </>
              )} */}
              {isAuthenticated && (
-              
-              <>
-              <FaUserAlt />
-              <button onClick={logout}>Logout</button>
-              </>
+              <a href="#" onClick={logout}> <FaUserAlt /> <br/>Logout  </a>
           )}
           </li>
         </ul>

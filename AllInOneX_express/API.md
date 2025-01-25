@@ -1,6 +1,9 @@
 <!--  Create a database -->
 CREATE DATABASE express_app
 
+<!-- to take a backup of sql file -->
+c:\Program Files\MySQL\MySQL Server 8.0\bin>mysqldump -h localhost -u root -p express_app > my_custom_backup.sql
+Enter password: *****
 <!-- Select db to use -->
 USE express_app;
 

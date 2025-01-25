@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Footer from "./Footer";
 import { login } from "../../services/authService";
+import { useAlert } from "../../context/AlertContext";
 
 const Login = ({ setView }) => {
   // Create state to hold form input values
@@ -8,7 +9,8 @@ const Login = ({ setView }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(""); // To store any error messages
   const [loading, setLoading] = useState(false); // To handle loading state
-
+  const { showAlert } = useAlert();
+//   showAlert("Action was successful!", "success");
   // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent page reload on form submit
@@ -24,12 +26,14 @@ const Login = ({ setView }) => {
         
         if (response.status === 200 && response.data.message === 'Login successful') {
             console.log("Login successful:", response.data);
+            showAlert(response.data.message, "success");
             // Handle successful login (e.g., save token, redirect user)
         } else {
             setError(response.data.message || 'Login failed');
         }
     } catch (err) {
         console.error("Login error:", err.response.data.error);
+        showAlert(err.response.data.error, "danger");
         setError(err.response.data.error);
     } finally {
         setLoading(false); // Stop loading spinner

@@ -11,7 +11,8 @@ import Insta from "../modules/Insta/pages/InstaPage";
 import Shop from "../modules/ECommerce/pages/Shop";
 import "./AppRoutes.css"; // Import CSS for styling
 import  ProfilePage from "../pages/ProfilePage/ProfilePage"
-import AccountPage from "../pages/Account/AccountHomePage"
+import AccountPage from "../pages/Account/AccountHomePage";
+import Auth from "../pages/Auth/Auth"
 
 function AppRoutes() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -23,11 +24,19 @@ function AppRoutes() {
         {isAuthenticated && (
             <Header />
         )}
-        <main className="app-content">
+        <main className="app-content" style={isAuthenticated ? {} : { height: '100vh' }}>
           <Routes>
             {/* Public Routes */}
             {!isAuthenticated && (
               <>
+              {/* Add the route for Auth */}
+              <Route path="/auth" element={<Auth />} />
+              {/* <Route path="/auth" element={<Auth />}>
+                  <Route path="login" element={<Login />} />
+                  <Route path="signup" element={<Signup />} />
+                  <Route path="forgot-password" element={<ForgotPassword />} />
+              </Route> */}
+
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="*" element={<Navigate to="/login" />} />

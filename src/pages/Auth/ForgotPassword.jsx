@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { forgotPassword } from '../../services/authService';
 
 const ForgotPassword = ({ setView }) => {
   // State to store email input
@@ -33,13 +34,14 @@ const ForgotPassword = ({ setView }) => {
 
     // Send data to the API (example using fetch)
     try {
-      const response = await fetch("YOUR_API_URL_HERE", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ formData: dataToSend }), // Send data in the array format
-      });
+      // const response = await fetch("YOUR_API_URL_HERE", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ formData: dataToSend }), // Send data in the array format
+      // });
+      const response = await forgotPassword(email);
 
       if (response.ok) {
         // Handle successful password reset (e.g., show success message)

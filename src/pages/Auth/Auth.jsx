@@ -27,36 +27,33 @@ const Auth = () => {
                     className="card p-4 shadow-lg"
                     style={{ maxWidth: "400px", width: "100%" }}
                 >
-                    {/* Dynamic Title */}
                     <h1 className="h3 mb-3 fw-normal text-center">
-                        {view === "login" ? "Login Page" : view === "signup" ? "Sign Up Page" : "Forgot Password"}
+                        {view === "login"
+                            ? "Login Page"
+                            : view === "signup"
+                            ? "Sign Up Page"
+                            : "Forgot Password"}
                     </h1>
-
-                    {/* Render the corresponding component */}
                     {renderComponent()}
-
-                    {/* Links to switch between views */}
                     <div className="d-flex flex-column mt-3">
                         {view !== "signup" && (
-                            <p className="mb-0">
+                            <p>
                                 Don't have an account?{" "}
                                 <a href="#" onClick={() => setView("signup")}>
                                     Signup
                                 </a>
                             </p>
                         )}
-
                         {view !== "forgotPassword" && (
-                            <p className="mb-0">
+                            <p>
                                 Forgot password?{" "}
                                 <a href="#" onClick={() => setView("forgotPassword")}>
                                     Reset here
                                 </a>
                             </p>
                         )}
-
                         {view !== "login" && (
-                            <p className="mb-0">
+                            <p>
                                 Already have an account?{" "}
                                 <a href="#" onClick={() => setView("login")}>
                                     Login
@@ -64,7 +61,6 @@ const Auth = () => {
                             </p>
                         )}
                     </div>
-
                     <Footer />
                 </form>
             </div>

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Footer from "./Footer";
+import { login } from "../../services/authService";
 
 const Login = ({ setView }) => {
   // Create state to hold form input values
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");  // To store any error messages
-  const [loading, setLoading] = useState(false);  // To handle loading state
+  const [error, setError] = useState(""); // To store any error messages
+  const [loading, setLoading] = useState(false); // To handle loading state
 
   // Handle form submission
   const handleSubmit = async (event) => {
@@ -17,39 +18,21 @@ const Login = ({ setView }) => {
       setError("Please enter both login ID and password.");
       return;
     }
-
-    // Reset previous error
-    setError("");
     setLoading(true);
-
-    // Prepare data for the API call
-    const dataToSend = { loginId, password };
-    console.log(dataToSend);
     try {
-      const response = await fetch("YOUR_API_URL_HERE", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dataToSend), // Send data to the server
-      });
-
-      if (response.ok) {
-        // Handle successful login (e.g., redirect user, show success message)
-        const data = await response.json();
-        console.log("Login successful:", data);
-        // You can redirect the user to the dashboard or another page here
-      } else {
-        // Handle errors from the API (e.g., incorrect login credentials)
-        const errorData = await response.json();
-        setError(errorData.message || "Invalid login credentials.");
-      }
-    } catch (error) {
-      // Handle network or other errors
-      console.error("Error during login:", error);
-      setError("Something went wrong. Please try again.");
+        const response = await login(loginId, password);  // Call the login API
+        
+        if (response.status === 200 && response.data.message === 'Login successful') {
+            console.log("Login successful:", response.data);
+            // Handle successful login (e.g., save token, redirect user)
+        } else {
+            setError(response.data.message || 'Login failed');
+        }
+    } catch (err) {
+        console.error("Login error:", err.response.data.error);
+        setError(err.response.data.error);
     } finally {
-      setLoading(false); // Stop loading spinner after API call
+        setLoading(false); // Stop loading spinner
     }
   };
 
@@ -65,7 +48,9 @@ const Login = ({ setView }) => {
           value={loginId} // Bind the input value to state
           onChange={(e) => setLoginId(e.target.value)} // Update the state on change
         />
-        <label htmlFor="floatingLoginId">Email, Username, or Mobile Number</label>
+        <label htmlFor="floatingLoginId">
+          Email, Username, or Mobile Number
+        </label>
       </div>
 
       {/* Password Field */}
@@ -88,13 +73,11 @@ const Login = ({ setView }) => {
       <button
         className="btn btn-primary w-100 py-2"
         onClick={handleSubmit}
-        disabled={loading}  // Disable button while loading
+        disabled={loading} // Disable button while loading
       >
         {loading ? "Signing in..." : "Sign in"}
       </button>
 
-      {/* Footer Component */}
-      <Footer />
     </>
   );
 };

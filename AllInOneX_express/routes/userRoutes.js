@@ -1,0 +1,20 @@
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/userController');
+
+// Define routes
+router.get('/fetch', userController.getUsers);
+
+// Route to create a new user
+router.post('/create', userController.createUser);
+
+// Soft delete a user
+router.delete('/delete/:userId', userController.softDeleteUser);
+
+// Login route
+router.post('/login', userController.loginUser);
+
+// Get users by status
+router.get('/status/:status', userController.getUsersByStatus);
+
+module.exports = router;

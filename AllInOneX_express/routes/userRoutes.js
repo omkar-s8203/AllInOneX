@@ -3,10 +3,10 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 
 // Define routes
-router.get('/users', userController.getUsers);
+router.get('/fetch', userController.getUsers);
 
 // Route to create a new user
-router.post('/create-user', userController.createUser);
+router.post('/create', userController.createUser);
 
 // Soft delete a user
 router.delete('/delete/:userId', userController.softDeleteUser);

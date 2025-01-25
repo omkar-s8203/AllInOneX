@@ -13,6 +13,7 @@ function CreatePostForm({ setView }) {
     const [tagInput, setTagInput] = useState(""); // For handling individual tag input
     const [error, setError] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false); // To control success pop-up
+    const [isLoading, setIsLoading] = useState(false); // To show loading indicator
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -46,16 +47,49 @@ function CreatePostForm({ setView }) {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (!formData.title || !formData.media || !formData.description) {
             setError("All fields are required.");
             return;
         }
-        console.log("Form Data:", formData);
-        
+
+        setIsLoading(true);
         setError("");
-        setIsSubmitted(true); // Show success pop-up
+
+        // Prepare API payload
+        const apiPayload = {
+            user_id: 2, // Default user_id (adjust as needed)
+            post_title: formData.title,
+            post_caption: formData.description,
+            media_type: "image", // Default media type
+            visibility: formData.visibility,
+            tags: formData.tags,
+            location: "Unknown", // Default location (adjust as needed)
+        };
+
+        try {
+            const response = await fetch("http://localhost:3000/api/posts/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(apiPayload),
+            });
+            console.log(response);
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || "Failed to create post");
+            }
+
+            // Show success message
+            setIsSubmitted(true);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const handleClosePopup = () => {
@@ -174,7 +208,9 @@ function CreatePostForm({ setView }) {
                 {error && <div className="error-message">{error}</div>}
 
                 <div className="form-actions">
-                    <button type="submit">Submit</button>
+                    <button type="submit" disabled={isLoading}>
+                        {isLoading ? "Submitting..." : "Submit"}
+                    </button>
                     <button
                         type="button"
                         className="cancel-btn"

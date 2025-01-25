@@ -1,0 +1,58 @@
+.follow-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px 20px; /* Increased padding for better spacing */
+  margin: 15px 0; /* Increased margin for proper separation */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Added gap for consistent spacing */
+}
+
+.profile-pic {
+  width: 60px; /* Slightly larger for better visibility */
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #62b965;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Added gap between username and full name */
+}
+
+.username {
+  font-weight: bold;
+  font-size: 1.1em; /* Slightly larger for readability */
+  color: #333;
+  padding-left: 10px;
+}
+
+.full-name {
+  font-size: 0.95em; /* Slightly larger for readability */
+  color: #666;
+}
+
+.follow-btn {
+  background-color: #62b965;
+  color: #fff;
+  border: none;
+  padding: 10px 20px; /* Increased padding for better button size */
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+  align-self: flex-end; /* Ensures button aligns nicely in the card */
+}
+
+.follow-btn:hover {
+  background-color: #4a9d51;
+}

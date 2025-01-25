@@ -1,6 +1,9 @@
 <!--  Create a database -->
 CREATE DATABASE express_app
 
+<!-- to take a backup of sql file -->
+c:\Program Files\MySQL\MySQL Server 8.0\bin>mysqldump -h localhost -u root -p express_app > my_custom_backup.sql
+Enter password: *****
 <!-- Select db to use -->
 USE express_app;
 
@@ -31,11 +34,11 @@ VALUES (1, 'Omkar', 'omkar@example.com', '1234567891', 'admin', 'active', 'admin
 SELECT * FROM users;
 
 <!-- Get users list curld for postman GET-->
-curl --location 'http://localhost:3000/api/user/users'
+curl --location 'http://localhost:3000/api/user/fetch'
 
 <!-- Create new user list curl request for postman POST-->
 
-curl --location 'http://localhost:3000/api/user/create-user' \
+curl --location 'http://localhost:3000/api/user/create' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "createdBy": 1,

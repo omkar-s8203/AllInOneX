@@ -34,12 +34,14 @@ api.interceptors.response.use(
     (error) => {
         // Handle errors globally
         console.error('API Error:', error.message);
-        if (error.response.data.error) {
-            console.error('API Error:', error.response.data.error);
-        } else {
-            console.error('API Error:', error.message);
+
+        if (error.response) {
+            // Handle API error responses
+            return Promise.reject(error.response.data.error || error.message);
         }
-        return Promise.reject(error);
+        
+        // Handle network or other errors
+        return Promise.reject(error.message || 'An unknown error occurred');
     }
 );
 

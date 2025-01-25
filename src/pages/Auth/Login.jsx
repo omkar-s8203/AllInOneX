@@ -30,11 +30,13 @@ const Login = ({ setView }) => {
             // Handle successful login (e.g., save token, redirect user)
         } else {
             setError(response.data.message || 'Login failed');
+            
         }
     } catch (err) {
-        console.error("Login error:", err.response.data.error);
-        showAlert(err.response.data.error, "danger");
-        setError(err.response.data.error);
+        console.error("Login error:", err);
+        showAlert(err, "danger");
+        setError(err)
+       
     } finally {
         setLoading(false); // Stop loading spinner
     }

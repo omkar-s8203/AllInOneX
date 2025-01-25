@@ -14,9 +14,9 @@ export const AlertProvider = ({ children }) => {
 
   const showAlert = (message, type) => {
     setAlert({ message, type, visible: true });
-    // setTimeout(() => {
-    //   setAlert({ ...alert, visible: false });
-    // }, 5000); // Hide alert after 5 seconds
+    setTimeout(() => {
+      setAlert({ ...alert, visible: false });
+    }, 5000); // Hide alert after 5 seconds
   };
 
   return (

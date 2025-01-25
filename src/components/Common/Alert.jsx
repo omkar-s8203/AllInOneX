@@ -28,12 +28,16 @@ const Alert = () => {
   }
 
   return (
-    <div className={`alert ${alertClass} text-center d-flex align-items-center position-fixed top-0 start-50 translate-middle-x z-index-5`} role="alert">
-      
-        <use xlinkHref={`#${alertIcon}`} />
-     
-      <div>{alert.message}</div>
-    </div>
+    <div className={`alert ${alertClass} text-center d-flex align-items-center position-fixed top-0 start-50 translate-middle-x z-index-5`}
+  role="alert"
+  style={{
+    minWidth: '50vw',  // Set minimum width to 50% of the screen width
+    animation: 'slideInFromTop 0.5s ease-out',  // Apply custom animation for coming from top
+  }}
+>
+  <div>{alert.message}</div>
+</div>
+
   );
 };
 

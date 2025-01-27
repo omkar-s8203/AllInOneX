@@ -11,14 +11,14 @@ function HomePage() {
         {/* Instagram Card */}
         <div className="card instagram-card">
           <div className="card-header">
-            <h2>Instagram</h2>
+            <h2>InstBinsta</h2>
           </div>
           <div className="card-body">
-            <img src="https://img.freepik.com/free-vector/instagram-logo_1199-122.jpg" alt="Instagram" className="card-image" />
+            <img src="https://img.freepik.com/free-vector/instagram-logo_1199-122.jpg" alt="InstBinsta" className="card-image" />
             <p>Explore posts, reels, stories, and more from your favorite creators.</p>
           </div>
           <div className="card-footer">
-            <Link to="/insta" className="card-link">Go to Instagram</Link>
+            <Link to="/insta" className="card-link">Go to InstBinsta</Link>
           </div>
         </div>
 

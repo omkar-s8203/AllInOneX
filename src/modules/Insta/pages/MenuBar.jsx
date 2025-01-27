@@ -1,6 +1,6 @@
-import { FaMessage, FaPersonRifle, FaSquareMinus, FaThreads } from "react-icons/fa6";
+import { FaMessage, FaPersonRifle } from "react-icons/fa6";
 import "./MenuBar.css";
-import { FaHome, FaInstagram, FaPlusCircle, FaStudiovinari, FaVideo } from "react-icons/fa";
+import { FaHome, FaInstagram, FaPlusCircle, FaVideo } from "react-icons/fa";
 
 function MenuBar({ setView }) {
   return (
@@ -34,24 +34,7 @@ function MenuBar({ setView }) {
         <br />
       </div>
 
-      <div className="menu-down">
-        <br />
-        <br />
-        <br />
-        <br />
-        <span className="menu-item">
-          <FaStudiovinari /> AI Studio
-        </span>
-        <br />
-        <span className="menu-item">
-          <FaThreads /> Threads
-        </span>
-        <br />
-        <span className="menu-item">
-          <FaSquareMinus /> Setting
-        </span>
-        <br />
-      </div>
+     
     </div>
   );
 }

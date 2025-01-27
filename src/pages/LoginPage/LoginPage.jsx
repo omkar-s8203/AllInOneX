@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import "./LoginPage.css";
+import { RiAdminLine } from "react-icons/ri";
+
 // import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -35,7 +37,8 @@ function LoginPage() {
   };
   const handleLogin = () => {
     console.log("Calling login function...");
-    login(); // This will call the login function in AuthProvider
+    const tempUser = {"id":1, "username":"Super Boss","email":"admin@example.com","role":"admin"};
+    login(JSON.stringify(tempUser));// This will call the login function in AuthProvider
   };
 
   const handleLogout = () => {
@@ -48,7 +51,7 @@ function LoginPage() {
       <div className="login-card">
         <div>
           {/* below are the bypass login and logout button use when need */}
-          <button onClick={handleLogin}>Login</button>
+          {/* <button onClick={handleLogin}>Login</button> */}          
           {/* <button onClick={handleLogout}>Logout</button> */}
         </div>
         <h1>Login Page</h1>
@@ -94,6 +97,7 @@ function LoginPage() {
             Create New Account
           </a>
         </p>
+        <a href="#" onClick={handleLogin}><RiAdminLine /></a>
       </div>
     </div>
   );

@@ -57,10 +57,11 @@ function CreatePostForm({ setView }) {
 
         setIsLoading(true);
         setError("");
-
+        const user = JSON.parse(localStorage.getItem('user'));
+        console.log(user);
         // Prepare API payload
         const apiPayload = {
-            user_id: 2, // Default user_id (adjust as needed)
+            user_id: parseInt(user.id), // Default user_id (adjust as needed)
             post_title: formData.title,
             post_caption: formData.description,
             media_type: "image", // Default media type

@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Import the cors package
-const userRoutes = require('./routes/userRoutes'); // Adjust the path as necessary
+const cors = require('cors');
+const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
 const authMiddleware = require('./middleware/authMiddleware');
 
@@ -11,14 +11,14 @@ const PORT = 3000;
 // Add CORS middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow requests from your frontend
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-// Middleware for authentication (if needed)
-app.use(authMiddleware);  
+// Middleware for authentication
+app.use(authMiddleware);
 
 // Middleware for parsing JSON requests
 app.use(bodyParser.json());
@@ -31,6 +31,15 @@ app.get('/', (req, res) => {
 // Mount routes
 app.use('/api/user', userRoutes); // Base path for user routes
 app.use('/api/posts', postRoutes); // Mount post routes
+
+
+// Catch-all route for any unhandled routes
+app.all('*', (req, res) => {
+  res.status(404).json({
+    message: `Route ${req.originalUrl} not found.`,
+    error:`Route ${req.originalUrl} not found.`
+  });
+});
 
 // Start the server
 app.listen(PORT, () => {

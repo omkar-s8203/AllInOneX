@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaUserAlt } from "react-icons/fa";
+import { BiLogOut } from "react-icons/bi";
 import "./Header.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -41,11 +41,7 @@ function Header() {
               </>
              )} */}
              {isAuthenticated && (
-              
-              <>
-              <FaUserAlt />
-              <button onClick={logout}>Logout</button>
-              </>
+              <a href="#" onClick={logout}> <BiLogOut /></a>
           )}
           </li>
         </ul>

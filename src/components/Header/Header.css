@@ -41,7 +41,7 @@
   font-size: 2rem;
   font-weight: bold;
   font-family: 'Arial', sans-serif;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: var(--text-color);
   cursor: pointer;
   margin-right: 1rem;

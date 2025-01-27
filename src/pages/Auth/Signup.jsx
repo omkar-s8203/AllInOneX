@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import Footer from "./Footer";
-import { signup } from "../../services/authService";
+import { signupCall } from "../../services/authService";
+import { useAlert } from "../../context/AlertContext";
+
 
 const Signup = ({ setView }) => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     mobile: "",
-    name: "",
     password: "",
   });
   const [error, setError] = useState("");
+  const { showAlert } = useAlert();
+
 
   // Handle form data changes
   const handleChange = (e) => {
@@ -21,67 +23,47 @@ const Signup = ({ setView }) => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Check if at least one of the fields is filled in
     if (!formData.username && !formData.email && !formData.mobile) {
       setError("At least one of Username, Email, or Mobile is required.");
       return;
     }
-
+  
     // Reset error message
     setError("");
-
-    // Prepare data as an array (can adjust the format as needed)
-    const dataToSend = [
-      { field: "username", value: formData.username },
-      { field: "email", value: formData.email },
-      { field: "mobile", value: formData.mobile },
-      { field: "name", value: formData.name },
-      { field: "password", value: formData.password },
-    ];
-
-    // Log the data for debugging purposes
-    console.log("Form submitted with data:", dataToSend);
-
-    // Send data to the API (example using fetch)
+  
+    // Sanitize the form data by removing empty fields
+    const sanitizedData = Object.fromEntries(
+      Object.entries(formData).filter(([key, value]) => value !== "")
+    );
+  
+    // Log the sanitized data for debugging purposes
+    console.log("Sanitized form data:", sanitizedData);
+  
     try {
-      // const response = await fetch("YOUR_API_URL_HERE", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({ formData: dataToSend }), // Send data in the array format
-      // });
-      const response = await signup(dataToSend);
+      const response = await signupCall(sanitizedData);
       console.log("Signup Successful:", response.data);
-      if (response.ok) {
+  
+      if (response.status === 201) {
         // Handle successful signup (e.g., show success message, redirect user, etc.)
         console.log("Signup successful!");
+        showAlert(response.data.message, "success");
+        setView("login");
       } else {
         // Handle API errors
-        const errorData = await response.json();
-        console.log("Error from API:", errorData);
+        console.log("Error from API:", response);
       }
     } catch (error) {
       // Handle network or other errors
       console.log("Error during signup:", error);
+      showAlert(error.message || "An error occurred during signup.", "danger");
     }
   };
+  
 
   return (
     <>
-      {/* Name Field */}
-      <div className="form-floating">
-        <input
-          type="text"
-          className="form-control"
-          id="name"
-          placeholder="Enter name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <label htmlFor="name">Name</label>
-      </div>
 
       {/* Username Field */}
       <div className="form-floating">

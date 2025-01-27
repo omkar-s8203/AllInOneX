@@ -33,7 +33,7 @@ api.interceptors.response.use(
   },
   (error) => {
     // Handle errors globally
-    console.error("API Error:", error.message);
+    console.error("API Error:", error);
 
     if (error.response) {
       // Handle API error responses

@@ -50,7 +50,7 @@ function CreatePostForm({ setView }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.title || !formData.media || !formData.description) {
+        if (!formData.title  || !formData.description) {
             setError("All fields are required.");
             return;
         }
@@ -113,7 +113,7 @@ function CreatePostForm({ setView }) {
                     />
                 </div>
 
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="media">Media (Image/Video)</label>
                     <input
                         type="file"
@@ -123,7 +123,7 @@ function CreatePostForm({ setView }) {
                         multiple
                         required
                     />
-                </div>
+                </div> */}
 
                 <div className="form-group">
                     <label htmlFor="description">Description</label>

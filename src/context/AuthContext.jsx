@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
     console.log("user ::", user);
 
     // Check if the user exists and set authentication accordingly
-    if (user && user.id) {
+    if (user ) {
       setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false); // Explicitly set to false if user is not authenticated

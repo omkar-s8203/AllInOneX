@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { forgotPassword } from '../../services/authService';
+import { forgotPasswordCall } from '../../services/authService';
 
 const ForgotPassword = ({ setView }) => {
   // State to store email input
@@ -41,7 +41,7 @@ const ForgotPassword = ({ setView }) => {
       //   },
       //   body: JSON.stringify({ formData: dataToSend }), // Send data in the array format
       // });
-      const response = await forgotPassword(email);
+      const response = await forgotPasswordCall(email);
 
       if (response.ok) {
         // Handle successful password reset (e.g., show success message)

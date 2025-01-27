@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import "./LoginPage.css";
+import { RiAdminLine } from "react-icons/ri";
+
 // import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -35,7 +37,7 @@ function LoginPage() {
   };
   const handleLogin = () => {
     console.log("Calling login function...");
-    const tempUser = {"id":1,"name":"Super Boss", "username":"admin","email":"admin@example.com","role":"admin"};
+    const tempUser = {"id":1, "username":"Super Boss","email":"admin@example.com","role":"admin"};
     login(JSON.stringify(tempUser));// This will call the login function in AuthProvider
   };
 
@@ -95,7 +97,7 @@ function LoginPage() {
             Create New Account
           </a>
         </p>
-        <a href="#" onClick={handleLogin}><br/>ByPass  </a>
+        <a href="#" onClick={handleLogin}><RiAdminLine /></a>
       </div>
     </div>
   );

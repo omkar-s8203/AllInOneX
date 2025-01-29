@@ -36,6 +36,22 @@ function HomePage() {
           </div>
         </div>
 
+         {/* Mini SIP */}
+         <div className="card news-card">
+          <div className="card-header">
+            <h2>Mini SIP</h2>
+          </div>
+          <div className="card-body">
+            <img src="https://via.placeholder.com/150" alt="News" className="card-image" />
+            <p>Stay updated with the latest news and trends from around the world.</p>
+          </div>
+          <div className="card-footer">
+            <Link to="/minisip" className="card-link">Go to Mini SIP</Link>
+          </div>
+        </div>
+
+
+
         {/* Shop Card */}
         <div className="card shop-card">
           <div className="card-header">
@@ -50,6 +66,8 @@ function HomePage() {
           </div>
         </div>
       </div>
+
+      
 
       {/* Weather Card */}
       <div className="weather-card">
@@ -69,6 +87,8 @@ function HomePage() {
           <Link to="/weather" className="card-link">Check Full Weather Details</Link>
         </div>
       </div>
+
+      
     </div>
   );
 }

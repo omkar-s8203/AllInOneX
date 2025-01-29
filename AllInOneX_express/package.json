@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "allinonex_express": "file:",
     "express": "^4.21.2",
     "mongoose": "^8.9.4"
   }

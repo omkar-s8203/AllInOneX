@@ -11,6 +11,7 @@ import Insta from "../modules/Insta/pages/InstaPage";
 import Shop from "../modules/ECommerce/pages/Shop";
 import "./AppRoutes.css"; // Import CSS for styling
 import  ProfilePage from "../pages/ProfilePage/ProfilePage"
+import MiniSIP from "../modules/MiniSIP/MiniSIP";
 
 function AppRoutes() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -42,6 +43,8 @@ function AppRoutes() {
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/insta" element={<Insta />} />
                 <Route path="/news" element={<Insta />} />
+                <Route path="/minisip" element={<MiniSIP />} />
+
                 <Route path="/blogging" element={<Blogging />} />
                 <Route path="/weather" element={<Weather />} />
                 <Route path="*" element={<Navigate to="/" />} />
